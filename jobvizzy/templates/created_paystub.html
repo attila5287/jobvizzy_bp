@@ -1,0 +1,275 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+
+        table {
+            border-top-width: 2px ;
+            border-top-style:  solid;
+            border-top-color:  cadetblue;
+
+        }
+        td {
+            font-family: 'Arial Narrow'
+            font-size : 6px;
+        }
+
+
+        .A4 {
+            background: white;
+            width: 21cm; 
+            height: 29.7cm;
+            display: block;
+            margin: 0 auto;
+            padding: 10px 25px;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+            }
+
+            @media print {
+            .page-break { display: block; page-break-before: always; }
+            size: A4 portrait;
+            } 
+
+            @media print {
+            .noprint {display:none;}
+            .enable-print { display: block; }
+            }
+}
+</style>
+<div class="container p-2 py-4">
+    <div class="row">
+        <div class="col-sm-2 text-center">
+            <img src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/paystubgen_upperleft.ico" alt="logo" height="120" height="120">
+        </div>
+        <div class="col-sm-4">
+            <h1 style="font-family: 'Segoe UI'; font-weight: 600">
+                Earnings Statement
+            </h1>
+                Pay Period: {{ Pay_stub.dateStart }} through {{ Pay_stub.dateEnd }}
+             {{ Pay_stub.lastName }}, {{ Pay_stub.firstName }} {{ Pay_stub.middleName }}
+        </i>
+        </div>
+        <div class="col-sm-3">
+                    <strong class="card-title">Company</strong>
+                    <p class="card-text">
+                        {{ Pay_stub.companyName }}
+                    </p>
+        </div>
+        <div class="col-sm-3">
+                    <strong class="card-title"> Employee </strong>
+                    <p class="card-text"> 
+                            {{ Pay_stub.firstName }} {{ Pay_stub.middleName }} {{ Pay_stub.lastName }}
+                    </p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <i>Employee Earnings</i>
+            <table class="table table-inverse">
+                <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Hours</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Year To Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Regular Hours | Hourly</td>
+                    <td> {{ Pay_stub.hourlyRate }}</td>
+                    <td> {{ Pay_stub.hoursWorked }}</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.current) }}</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.year2date) }}</td>
+                </tr>
+                <tr>
+                    <td>Gross Earnings</td>
+                    <td></td>
+                    <td></td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.current) }}</td>                        
+                    <td>{{ '{:,.2f}'.format(Pay_stub.year2date) }}</td>
+                </tr>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- second row of tables -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <i>Employee Taxes Withheld</i>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Employee Tax</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Year To Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Social Security </td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.social_security) }}</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.social_security_year2date) }}</td>
+                </tr>
+                <tr>
+                    <td> Medicare </td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.medicare) }}</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.medicare_year2date) }}</td>
+                </tr>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <i> Employer Taxes</i>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Company Tax</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Year To Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Social Security </td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.social_security) }}</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.social_security_year2date) }}</td>
+                </tr>
+                <tr>
+                    <td> Medicare </td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.medicare) }}</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.medicare_year2date) }}</td>
+                </tr>
+                <tr>
+                    <td> FUTA</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.futa) }}</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.futa_year2date) }}</td>
+                </tr>
+                <tr>
+                    <td> CO Unemployment </br> Insurance Tax</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.co_unemp) }}</td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.co_unemp_year2date) }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <i>Employee Deductions</i>
+            <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Current</th>
+                <th scope="col">Year To Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>None</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <i>Employer Contributions</i>
+            <table class="table">
+                <thead >
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Year To Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td>None</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <i>Summary</i>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Year To Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td>Gross Earnings</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.current) }} </td>
+                    <td>{{ '{:,.2f}'.format(Pay_stub.year2date) }}</td>
+                </tr>
+                <tr>
+                    <td>Pre-Tax Deductions</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Taxes</td>
+                    <td> {{'{:,.2f}'.format(Pay_stub.taxes)}} </td>
+                    <td> {{'{:,.2f}'.format(Pay_stub.taxes_year2date)}} </td>
+                </tr>
+                <tr>
+                    <td>Post-Tax Deductions/Contributions</td>
+                    <td> 0 </td>
+                    <td> 0 </td>
+                </tr>
+            
+                <tr>
+                    <td>Net Pay</td>
+                    <td> {{'$ {:,.2f}'.format(Pay_stub.net_pay)}} </td>
+                    <td> {{'$ {:,.2f}'.format(Pay_stub.net_pay_y2d)}} </td>
+                </tr>
+                <tr>
+                    <td>Reimbursements</td>
+                    <td> 0</td>
+                    <td> 0</td>
+                </tr>
+                <tr>
+                    <td>Check Amount</td>
+                    <td> {{ '{:,.2f}'.format(Pay_stub.net_pay)}} </td>
+                    <td> 
+                        {{ '{:,.2f}'.format(Pay_stub.net_pay_y2d)}} 
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
