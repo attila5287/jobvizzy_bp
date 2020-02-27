@@ -1,6 +1,6 @@
 
 from flask import render_template, request, Blueprint
-from jam.models import Post, PostDemo
+from jobvizzy.models import Post, PostDemo
 
 main = Blueprint('main', __name__)
 

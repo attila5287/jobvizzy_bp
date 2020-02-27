@@ -1,9 +1,9 @@
 from flask import (render_template, url_for, flash,
                    redirect, request, abort, Blueprint)
 from flask_login import current_user, login_required
-from jam import db
-from jam.models import Post
-from jam.posts.forms import PostForm
+from jobvizzy import db
+from jobvizzy.models import Post
+from jobvizzy.posts.forms import PostForm
 
 posts = Blueprint('posts', __name__)
 

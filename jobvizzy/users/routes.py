@@ -1,11 +1,11 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from jam import db, bcrypt
-from jam.models import User, Post
-from jam.users.forms import (
+from jobvizzy import db, bcrypt
+from jobvizzy.models import User, Post
+from jobvizzy.users.forms import (
     RegistrationForm, LoginForm, UpdateAccountForm,RequestResetForm, ResetPasswordForm
 )
-from jam.users.utils import save_picture
+from jobvizzy.users.utils import save_picture
 
 users = Blueprint('users', __name__)
 

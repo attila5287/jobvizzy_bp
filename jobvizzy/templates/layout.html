@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +19,7 @@
 
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/united/bootstrap.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/pulse/bootstrap.min.css"
 		/>
 
 
@@ -27,7 +28,7 @@
 			type="image/x-icon"
 			class="favicon"
 			href="
-			https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/jam_favIcon_png256_jframed.png
+			https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owl_png02Large.png
 			"
 		/>
 		
@@ -56,16 +57,16 @@
 	</style>			
 
 	</head>
-	<body style="background-color: silver;">
-		<nav 
-		class="navbar navbar-expand-md navbar-dark fixed-top bg-black text-maroon"
+	<body >
+		<nav class="navbar navbar-expand-sm navbar-dark bg-primary text-light fixed-top mb-2 px-4">
 
-		>
-
-			<a class="navbar-brand" href="http://jampay.herokuapp.com">
+			<a class="navbar-brand" href="http://jobvizzy.herokuapp.com">
 				<img
-            src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/navBarIcon_jam_nodes_simplifiedd.ico"
-            width="112" height="30">
+
+			src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png"
+			
+			style="height: 3rem;"
+            >
 			</a>
 
 			<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -79,10 +80,16 @@
 				{% if current_user.is_authenticated %}
 
 				<li class="nav-item">
-				<a class="nav-link" href="{{url_for('paystub.create_paystub')}}">PayStub</a>
+				<a class="nav-link" href="">
+					<i class="fas fa-wrench"></i>
+					Job</a>
 				</li>				
 				<li class="nav-item">
-				  <a class="nav-link" href="{{url_for('timesheet.create_timesheet')}}">TimeSheet</a>
+				  <a class="nav-link" href="">
+						<i class="fas fa-city"></i>
+						<i class="fas fa-hotel    "></i>
+						City
+					</a>
 				</li>
 
 
@@ -90,15 +97,15 @@
 
 
 				<li class="nav-item">
-					<a class="nav-link" href="{{url_for('paystub.create_paystub')}}">
+					<a class="nav-link" href="">
 						<i class="fas fa-print"></i>
 						<i class="fas fa-money-check    "></i>
-						PayStub</a>
+						mod 01 item</a>
 					</li>				
 					<li class="nav-item">
-					  <a class="nav-link" href="{{url_for('timesheet.create_timesheet')}}">
+					  <a class="nav-link" href=">
 						  <i class="fas fa-hourglass-half"></i>
-						  TimeSheet</a>
+						  mod 02 item</a>
 					</li>
         {% endif %}
 				{% if current_user.is_authenticated %}
@@ -145,77 +152,76 @@
 		  </nav>
 		  <!-- CHALKBOARD INFO BAR  -->
 		  <!-- this is the part that pops up below navbar -->
-		<div class="collapse bg-black text-maroon mt-0 mb-0" id="navbarHeader" >
+		<div class="collapse bg-black text-purple mt-2 mb-0" id="navbarHeader" >
 			<div class="d-flex justify-content-around align-items-center mt-0 pt-4 px-2 mx-1 ">
-						<small class="text-muted p-0">
+						<small class="text-primary p-0">
 							Code basics in stack-like diagram
 						</small>
-						<p class="text-light text-center mt-0 mb-0 p-0">
+						<p class="text-primary text-center mt-0 mb-0 p-0">
 							<i class="fas  fw fa-flag mt-0"></i>
 						</p>
-						<p class="text-light text-center mt-0 mb-0 p-0">
+						<p class="text-primary text-center mt-0 mb-0 p-0">
 							<i class="fas fa-fw fa-arrow-right"></i>
 						</p>
-						<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
-							<i class="fas fa-user    "></i>	create a user acct
+						<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
+							<i class="fas fa-user"></i>	create a user acct
 							&RightArrowLeftArrow; 
 							<i class="fas fa-database"></i> stores hash pw into db
 						</div>
 						
-						<p class="text-light text-center mt-0 mb-0 p-0">
+						<p class="text-primary text-center mt-0 mb-0 p-0">
 						<i class="fas  fa-fw fa-arrow-right mt-0"></i>
 						</p>
 
 
-						<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
+						<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
 							<i class="fas fa-clipboard-list    "></i> user create obj (def: post) via forms
 							&RightArrowLeftArrow; 
 							<i class="fas fa-database    "></i> stores to db and reads when returned as a result of a query
 						</div>
 												
-						<p class="text-light text-center mt-0 mb-0 p-0">
+						<p class="text-primary text-center mt-0 mb-0 p-0">
 							<i class="fas fa-fw fa-level-down-alt mx-2 mt-0"></i>
 						</p>
 			</div>
 			<div class="d-flex flex-row-reverse justify-content-around align-items-center mt-0 pt-2 px-2 mr-2">
-				<p class="text-light text-center mt-0 mb-0 mx-2 p-0">
+				<p class="text-primary text-center mt-0 mb-0 mx-2 p-0">
 					<i class="fas fa-level-down-alt  fa-rotate-90 mt-0"></i>
 				</p>
-				<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1"  role="alert">
+				<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
 					<i class="fas fa-clipboard-check    "></i> user updates items/edits or delete records &RightArrowLeftArrow; 
 					<i class="fas fa-database    "></i> db stores or removes records
 				</div>
 				
-				<p class="text-light text-center mt-0 mb-0 p-0">
+				<p class="text-primary text-center mt-0 mb-0 p-0">
 					<i class="fas  fa-fw fa-arrow-left mt-0"></i>
 				</p>
 
-				<div class="alert alert-light bg-black border-light text-light text-center mb-1 p-1" role="alert">
+				<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
 					<i class="fas fa-chart-line    "></i> user obj itself could also be edited
 					&RightArrowLeftArrow;
 					<i class="fas fa-image    "></i> db records reflecting the profile pic, email, username.
 				</div>
-				<p class="text-light text-center mt-0 mb-0 p-0">
+				<p class="text-primary text-center mt-0 mb-0 p-0">
 					<i class="fas  fa-fw fa-arrow-left mt-0"></i>
 				</p>
-				<p class="text-light text-center mt-0 mb-0 p-0">
+				<p class="text-primary text-center mt-0 mb-0 p-0">
 					<i class="fas  fa-flag-checkered mt-0"></i>
 				</p>
 
 			</div>
 		</div>
 		</div>
-		<div class="navbar navbar-dark bg-secondary box-shadow mt-0"
-		style="border-bottom-width: medium;"
+		<div class="navbar navbar-dark  box-shadow mt-0"
 		>
 			<div class="container d-flex justify-content-between pt-2">
 				<a class="navbar-brand d-flex align-items-center">
-					<i class="fa fa-code mr-2 text-maroon" aria-hidden="true"> Show Me The Code!</i >
+					<i class="fa fa-code mr-2 text-purple" aria-hidden="true"> Show Me The Code!</i >
 					
-					<i class="fa fa-arrow-right mx-3 text-maroon" aria-hidden="true"></i>
+					<i class="fa fa-arrow-right mx-3 text-purple" aria-hidden="true"></i>
 				</a>
 				<button
-					class="navbar-toggler border-orange mt-1 p-1"
+					class="navbar-toggler mt-1 p-1"
 					type="button"
 					data-toggle="collapse"
 					data-target="#navbarHeader"
@@ -223,16 +229,14 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<i class="fas fa-chalkboard text-maroon mt-1">i</i>
+					<i class="fas fa-chalkboard text-purple mt-1">i</i>
 				</button>
 			</div>
 		</div>
-		<nav class="navbar navbar-expand-xs navbar-light bg-maroon">
-		</nav>
 		
 
 
-		<main role="main" class="container my-2 px-0">
+		<main role="main" class="container my-1 px-0">
 			<div class="row">
 				<div class="col-sm-9">
 					{% with messages = get_flashed_messages(with_categories=true) %} {% if
@@ -245,68 +249,86 @@
 				</div>
 				<!-- SIDEBAR -->
 				<div class="col-sm-3">
-					<div class="content-section px-1 py-2 no-print">
-						<div class="container-fluid text-center my-2 py-0 px-2">
+					<div class="content-section px-1 py-2 no-print mt-0">
+						<div class="container-fluid text-center mt-0 py-0 px-2">
 							<div
 								class="nav-flex-column text-center py-4"
 								style="width: fit-content; height:max-content;"
 							>
-								<img
-								src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/task_menu.ico"
-									class="card-img-top mb-2 px-2 py-1"
-								/>
-								{% if current_user.is_authenticated %}
 
+								{% if current_user.is_authenticated %}
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									class="nav-item btn btn-secondary btn-large nav-link text-purple bg-body border-primary pb-2 mt-2"
 									href=""
 									data-toggle="tooltip"
 									data-placement="right"
 									title="generate a paystub, fill out the forms"
 									style="border-width: medium;"
 								>
-									<i class="fa fa-print" aria-hidden="true"></i>
-									<strong>
-									PayStub
-									</strong>
-									</a>
+								<img
+								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro1.png"
+									class="m-0 p-0"
+									style="height: 2rem;"
+								/>
+									
 								</a>
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
-									href="{{ url_for('timesheet.create_timesheet') }}"
+									class="nav-item btn btn-large btn-secondary nav-link bg-body border-primary pb-2 mt-2"
+									href=""
 									data-toggle="tooltip"
 									data-placement="right"
-									title="type clock in-out hours to calculate hours worked"
+									title="generate a paystub, fill out the forms"
 									style="border-width: medium;"
 								>
-									<i class="fa fa-print" aria-hidden="true"></i> <strong>TimeSheet</strong></a>
+								<img
+								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper01.png"
+									class="m-0 p-0"
+									style="height: 2rem;"
+								/>
+									
 								</a>
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+								class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+								href=""
+								data-toggle="tooltip"
+								data-placement="right"
+								title="generate a paystub, fill out the forms"
+								style="border-width: medium;"
+							>
+							<img
+							src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier01.png"
+								class="m-0 p-0"
+								style="height: 2rem;"
+							/>
+							</a>
+								
+								<div class="d-flex justify-content-around align-items-center">
+								<a
+									class="nav-item btn btn-large nav-link text-purple border-body pb-2 mt-2"
 									href="{{ url_for('users.account') }}"
 									data-toggle="tooltip"
 									data-placement="right"
 									title="change user preferences or records"
-									style="border-width: medium;"
 								>
 								<i class="fas fa-cogs mr-2"> Account</i>
 								</a>								
+
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									class="nav-item btn btn-large nav-link text-purple  border-body pb-2 mt-2"
 									href="{{ url_for('users.logout') }}"
 									data-toggle="tooltip"
 									data-placement="right"
 									title="logout current user"
-									style="border-width: medium;"
 								>
 								<i class="fas fa-sign-out-alt mr-2"> Logout</i>
-								</a>																
-
+								</a>
+								</div>	
+								
 								{% else %}
 								
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
-									href="{{ url_for('paystub.create_paystub') }}"
+									class="nav-item btn btn-large  btn-secondary nav-link text-purple   border-body pb-2 mt-2"
+									href=""
 									data-toggle="tooltip"
 									data-placement="right"
 									title="generate a paystub, fill out the forms"
@@ -319,7 +341,7 @@
 									</a>
 								</a>
 								<a
-									class="nav-item btn btn-large bg-secondary nav-link text-maroon border-dark pb-2 mt-2"
+									class="nav-item btn btn-large btn-secondary nav-link text-purple border-body pb-2 mt-2"
 									href=""
 									data-toggle="tooltip"
 									data-placement="right"
@@ -329,7 +351,7 @@
 									<i class="fa fa-print" aria-hidden="true"></i> <strong>TimeSheet</strong></a>
 								</a>
 								<a
-									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 mt-2 border-dark"
+									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2 mt-2   border-body"
 									href="{{ url_for('main.about') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -345,7 +367,7 @@
 
 								</a>
 								<a
-									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 border-dark"
+									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2   border-body"
 									href="{{ url_for('users.register') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -356,7 +378,7 @@
 								</a>
 
 								<a
-									class="nav-item btn btn-secondary text-maroon btn-large nav-link mb-2 border-dark"
+									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2   border-body"
 									href="{{ url_for('users.login') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -368,29 +390,18 @@
 
 								{% endif %}
 
-								<div class="card border-body">
-									<div class="card-body bg-body border-body p-1">
-										<small
-											class="card-subtitle text-muted"
-											style="font-style: italic;"
-										> app developed; graphics designed; code written; database setup; records admin'd; idea cr34t3d by: 
-										</small>
-
-										<a href="https://github.com/attila5287/no_days_off">
-
-											<i class="fa fa-code-branch text-maroon ml-2" aria-hidden="true"
-											> attila#52 </i>
-										</a>
-									</div>
 								</div>
-								
+							<small
+							class="card-subtitle text-muted"
+							style="font-style: italic;"
+						> app developed; graphics designed; code written; database setup; records admin'd; idea cr34t3d by: 
+						</small>
 
+						<a href="https://github.com/attila5287/jobvizzy_bp">
 
-
-								<img
-								class="card-img-top mb-2"
-								src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/task_menu_bottom.ico"
-							/> 
+							<i class="fa fa-code-branch text-purple ml-2" aria-hidden="true"
+							> attila#52 </i>
+						</a>
 							</div>
 						</div>
 					</div>
@@ -402,9 +413,9 @@
 		<footer class="footer mt-4 no-print">
 			<div class="row">
 				<div class="col-sm-2 offset-sm-2">
-				  <img class="mb-2"
-					src="https://raw.githubusercontent.com/attila5287/payroll_management_app_assets/master/jam_upperleft_png512_brushedRedBlkk.ico"
-					alt="" width="128" height="128">
+				  <img class="p-4"
+					src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owl_png02Large.png"
+					alt="">
 				</div>
 				
 				<div class="col-sm-2">
@@ -434,48 +445,22 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<style>
-			.bg-body {
-				background-color: silver;
-			  }
-			  .border-body {
-				border-color:silver;
-				border-width: medium;
-			  }
-			  .bg-black {
-				background-color: rgba(22, 22, 22, 0.786);
-			  }			  
-			  .border-black {
-				border-color: rgb(22, 22, 22);
-			  }
-			  .bg-brick {
-				background-color: rgb(212, 125, 119);
-			  }			  
-			  .border-brick {
-				border-color: rgb(212, 125, 119);
-			  }			  
-			  .bg-grass {
-				background-color: rgba(170, 177, 130, 0.877);
-			  }
-			  .bg-sky {
-				background-color: rgba(152, 170, 199, 0.883);
-			  }
-
-			  .bg-gold {
-				background-color: rgba(238, 156, 79, 0.966);
-			  }
-			  .bg-silver {
-				background-color: rgba(221, 226, 225, 0.932);
-			  }
-
-			  .text-maroon {
-				  color: maroon;
-			  }
-			  .bg-maroon {
-				background-color: maroon;
+			body{
+				background-color: rgba(179, 139, 216, 0.462);
 			}
-			.border-maroon {
-				border-color: maroon;
+			.bg-body {
+				background-color: rgba(179, 139, 216, 0.462);
+			  }
+			  .  border-body {
+				border-color: rgba(179, 139, 216, 0.462);
 				border-width: medium;
+			  }
+
+			  .text-purple {
+				  color: rgb(114, 99, 212);
+			  }
+			  .bg-purple {
+				background-color: darkslateblue;
 			}
 			  html {
 				position: relative;
@@ -496,3 +481,4 @@
 
 	</body>
 </html>
+<div class="d-flex flex-column justify-content-around text-muted text-center">

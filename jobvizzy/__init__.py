@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-from jam.config import Config
+from jobvizzy.config import Config
 
 
 db = SQLAlchemy()
@@ -20,17 +20,13 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
-    from jam.users.routes import users
-    from jam.posts.routes import posts
-    from jam.main.routes import main
-    from jam.paystub.routes import paystub
-    from jam.timesheet.routes import timesheet
-    from jam.errors.handlers import errors
+    from jobvizzy.users.routes import users
+    from jobvizzy.posts.routes import posts
+    from jobvizzy.main.routes import main
+    from jobvizzy.errors.handlers import errors
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
-    app.register_blueprint(paystub)
-    app.register_blueprint(timesheet)
     app.register_blueprint(errors)
 
     return app
