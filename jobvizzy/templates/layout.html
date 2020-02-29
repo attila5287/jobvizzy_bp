@@ -41,9 +41,9 @@
 		/>
 
 		{% if title %}
-		<title> jam | {{ title }}</title>
+		<title> JobVizzy | {{ title }}</title>
 		{% else %}
-		<title> jam payroll</title>
+		<title> JobVizzy | </title>
 		{% endif %}
 
 	<style>
@@ -63,10 +63,7 @@
 			<a class="navbar-brand" href="http://jobvizzy.herokuapp.com">
 				<img
 
-			src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png"
-			
-			style="height: 3rem;"
-            >
+			src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png" style="height: 3rem;">
 			</a>
 
 			<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -80,9 +77,12 @@
 				{% if current_user.is_authenticated %}
 
 				<li class="nav-item">
-				<a class="nav-link" href="">
-					<i class="fas fa-wrench"></i>
-					Job</a>
+				<a class="nav-link" 
+				href="{{url_for('scraper.profiler')}}"
+				>
+					<i class="fas fa-question    "></i>
+					
+					Forms | Profiler</a>
 				</li>				
 				<li class="nav-item">
 				  <a class="nav-link" href="">
@@ -212,7 +212,7 @@
 			</div>
 		</div>
 		</div>
-		<div class="navbar navbar-dark  box-shadow mt-0"
+		<div class="navbar bg-secondary box-shadow mt-0"
 		>
 			<div class="container d-flex justify-content-between pt-2">
 				<a class="navbar-brand d-flex align-items-center">
@@ -249,17 +249,27 @@
 				</div>
 				<!-- SIDEBAR -->
 				<div class="col-sm-3">
-					<div class="content-section px-1 py-2 no-print mt-0">
+					<div class="content-section px-1 py-0 no-print mt-0">
 						<div class="container-fluid text-center mt-0 py-0 px-2">
 							<div
-								class="nav-flex-column text-center py-4"
+								class="nav-flex-column text-center"
 								style="width: fit-content; height:max-content;"
 							>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-6">
+										<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="mr-auto" alt="" style="height: 8em; transform: scaleX(1);">
+									</div>
+									<div class="col-sm-6">
+										<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="mr-auto" alt="" style="height: 8em; transform: scaleX(1);">
+									</div>
+								</div>
+							</div>
 
 								{% if current_user.is_authenticated %}
 								<a
-									class="nav-item btn btn-secondary btn-large nav-link text-purple bg-body border-primary pb-2 mt-2"
-									href=""
+									class="nav-item btn btn-large btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+									href="{{url_for('scraper.profiler')}}"
 									data-toggle="tooltip"
 									data-placement="right"
 									title="generate a paystub, fill out the forms"
@@ -301,10 +311,24 @@
 								style="height: 2rem;"
 							/>
 							</a>
+							<a
+							class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+							href=""
+							data-toggle="tooltip"
+							data-placement="right"
+							title="generate a paystub, fill out the forms"
+							style="border-width: medium;"
+						>
+						<img
+						src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu01.png"
+							class="m-0 p-0"
+							style="height: 2rem;"
+						/>
+						</a>							
 								
 								<div class="d-flex justify-content-around align-items-center">
 								<a
-									class="nav-item btn btn-large nav-link text-purple border-body pb-2 mt-2"
+									class="nav-item btn btn-large nav-link text-purple pb-2 mt-2"
 									href="{{ url_for('users.account') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -314,7 +338,7 @@
 								</a>								
 
 								<a
-									class="nav-item btn btn-large nav-link text-purple  border-body pb-2 mt-2"
+									class="nav-item btn btn-large nav-link text-purple pb-2 mt-2"
 									href="{{ url_for('users.logout') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -322,6 +346,7 @@
 								>
 								<i class="fas fa-sign-out-alt mr-2"> Logout</i>
 								</a>
+								
 								</div>	
 								
 								{% else %}
@@ -391,6 +416,7 @@
 								{% endif %}
 
 								</div>
+
 							<small
 							class="card-subtitle text-muted"
 							style="font-style: italic;"
@@ -410,12 +436,12 @@
 		</main>
 		
 
-		<footer class="footer mt-4 no-print">
+		<footer class="footer mt-2 no-print">
 			<div class="row">
-				<div class="col-sm-2 offset-sm-2">
-				  <img class="p-4"
+				<div class="col-sm-4">
+				  <img class="p-0 float-right"
 					src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owl_png02Large.png"
-					alt="">
+					alt="" style="height: 6rem;">
 				</div>
 				
 				<div class="col-sm-2">
@@ -451,7 +477,7 @@
 			.bg-body {
 				background-color: rgba(179, 139, 216, 0.462);
 			  }
-			  .  border-body {
+			  .border-body {
 				border-color: rgba(179, 139, 216, 0.462);
 				border-width: medium;
 			  }
@@ -462,13 +488,20 @@
 			  .bg-purple {
 				background-color: darkslateblue;
 			}
+			.bg-lavender {
+			background-color:#bb7dee;
+			}
+
+
 			  html {
 				position: relative;
 				min-height: 100%;
 			  }
 			  body {
+					margin-top: 20px;
 				margin-bottom: 60px; /* Margin bottom by footer height */
-			  }
+				}
+				
 			  .footer {
 				position: absolute;
 				bottom: 0;

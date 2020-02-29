@@ -12,6 +12,11 @@
 │   ├── main/
 │   │   ├── __init__.py
 │   │   └── routes.py
+│   ├── scraper/
+│   │   ├── __init__.py
+│   │   ├── functions.py
+│   │   ├── forms.py
+│   │   └── routes.py
 │   ├── posts/
 │   │   ├── __init__.py
 │   │   ├── forms.py

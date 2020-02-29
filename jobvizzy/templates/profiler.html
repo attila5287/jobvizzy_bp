@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- display user preferences -->
+            <div class="alert alert-secondary bg-lavender p-4 text-light">
+                <h3 class="mb-4">
+                    <i class="fas fa-wrench"></i>
+                    jobs selected:
+                </h3>
+
+                <button type="button" class="btn btn-info">
+                    job 
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- display user preferences -->
+            
+            <div class="alert alert-secondary bg-lavender p-4 text-light">
+                <h3 class="mb-4">
+                     
+                    <i class="fas fa-hotel"></i>
+                    city selected:
+                </h3>
+
+                <button type="button" class="btn btn-primary">
+                <h3>city</h3>
+                </button> 
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="alert alert-primary text-light" role="alert">
+                <h1 class="my-4">job title</h1>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="alert alert-primary text-light" role="alert">
+                <h1 class="my-4">city here</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container-fluid mb-2">
+    <div class="row">
+        {% for field in form %}
+        <div class="col-sm-6">
+            <div class="p-0">{{ field(class="form-control form-control-lg") }}</div>
+
+            {% if field.errors %}
+                <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="inputLarge">Large input</label>
+                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" id="inputLarge">
+                </div>
+                {% for error in field.errors %}
+                <span class="text-danger">{{ error }}</span></br>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+        {% endfor %}
+        <button type="button" class="btn btn-primary btn-lg btn-block m-3">Block level button</button>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="d-flex bg-info justify-content-center">
+                <form class="form3" method="POST" action="/user/reset">
+                    <button class="btn btn-info" type="onclick" onclick="resetButton()">
+                <h1 style="font-family: monospace; color: thistle">
+                <p>RES3T</p>
+                <i class="fa fa-battery-4" aria-hidden="true" style="color:thistle"></i>
+                <i class="fa fa-battery-0" aria-hidden="true" style="color:thistle"></i>
+                </h1>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="d-flex justify-content-center">
+                <a class="page-link" href="/01/">
+                    <div class="btn btn-light">
+                        <h6>
+                            <p>hit the button for next module!</p>
+                        </h6>
+                        <img display="d-flex" src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png" width="280px">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -23,10 +23,12 @@ def create_app(config_class=Config):
     from jobvizzy.users.routes import users
     from jobvizzy.posts.routes import posts
     from jobvizzy.main.routes import main
+    from jobvizzy.scraper.routes import scraper
     from jobvizzy.errors.handlers import errors
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
+    app.register_blueprint(scraper)
     app.register_blueprint(errors)
 
     return app
