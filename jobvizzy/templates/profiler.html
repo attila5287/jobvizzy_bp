@@ -9,7 +9,7 @@
             style="width: 66%;">
     </div>
 </div>
-    {% if posts ==[] %}
+    {% if jobTitles ==[] %}
     <br>
     Jinja nested statement works great with try - except of Python! These are introductory posts only to show up when demonstration required:
     <br>
@@ -57,12 +57,12 @@
                     <i class="fas fa-wrench"></i>
                     jobs selected:
                 </h3>
-{% for jobTitle in jobTitles %}
+{% for jobTitl3 in jobTitles %}
         <button type="button"
             class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
             style="border-radius: 9px;">
             <h1 class="text-light" style="font-family: monospace;">
-                {{jobTitle.jobTitle}}
+                {{jobTitl3.jobtitle}}
             </h1>
         </button>
 {% endfor %}
@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="row">
         <div class="col-md-12">
             <!-- display user preferences -->

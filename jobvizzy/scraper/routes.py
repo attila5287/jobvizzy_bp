@@ -2,7 +2,7 @@ from flask import (render_template, url_for, flash,
                    redirect, request, abort, Blueprint)
 from flask_login import current_user, login_required
 from jobvizzy import db
-from jobvizzy.models import Post, User, City, Pair, jobTitle
+from jobvizzy.models import Post, User, City, Pair, jobtitle
 from jobvizzy.scraper.forms import JobForm, CityForm, JobCityPairForm
 # from jobvizzy.scraper.functions import 
 
@@ -12,29 +12,30 @@ scraper = Blueprint('scraper', __name__)
 @scraper.route("/pair/delete/prev", methods=['GET', 'POST'])
 def delete_prev():
     pass
-    jobTitles =  jobTitle.query.filter_by(deletePrev='True').all()
+    jobTitles =  jobtitle.query.filter_by(deletePrev='True').all()
     cities = City.query.filter_by(deletePrev='True').all()
     try:
         pass
         print(len(jobTitles))
-        for jobTitle, city in jobTitles, cities:
+        for jobTitl3, city in jobTitles, cities:
             pass
-            db.session.delete(jobTitle)
+            db.session.delete(jobTitl3)
             db.session.delete(city)
-            flash('jobTitle|city deleted id:'+str(jobTitle.id)+'|'+str(city.id), 'success')
+            flash('jobTitle|city deleted id:'+str(jobTitl3.id)+'|'+str(city.id), 'success')
     except:
         pass
         flash('no job city pairs to delete!', 'danger')
     db.session.commit()
     return redirect(url_for('scraper.profiler'))
 
+
 @scraper.route("/profiler", methods=['GET', 'POST'])
 def profiler():
     """Form page to add job title and city"""
     pass
     form = JobCityPairForm()
-    jobTitles = jobTitle.query.order_by(jobTitle.date_posted.desc()).all()
-    cities = City.query.order_by(City.date_posted.desc()).all()
+    jobTitles = jobtitle.query.all()
+    cities = City.query.all()
 
     try:
         _ = [(jobTitl3, city) for (jobTitl3, city) in zip(jobTitles, cities)]
@@ -43,28 +44,16 @@ def profiler():
         jobTitles, cities = [], []
         flash('Job Title and City created with DEF ARGS!', 'warning')
 
-    try:
-        pass
-        print()
-    except:
-        pass
-        jobTitle = jobTitle(
-            jobTitle='Developer',
-        )
-        city = City(
-            city='Denver',
-        )
-
     if request.method == 'POST' and form.validate_on_submit():
         pass
-        jobTitle = jobTitle(
-            jobTitle=request.form["jobTitle"],
+        jobT1tle = jobtitle(
+            jobtitle=request.form["jobTitle"],
         )
         city = City(
             city=request.form["city"],
         )
 
-        db.session.add(jobTitle)
+        db.session.add(jobT1tle)
         db.session.add(city)
         db.session.commit()
 
@@ -158,10 +147,3 @@ def profil3r():
 #     inventory = list(mongo.db.collection.find())
 #     return render_template("02Lister.html", inventory=inventory)
 
-
-# @app.route('/signup', methods=['GET', 'POST'])
-# def signup_page():
-#     """User sign-up page."""
-#     signup_form = SignupForm(request.form)
-#     # POST: Sign user in
-#     if request.method == 'POST':
