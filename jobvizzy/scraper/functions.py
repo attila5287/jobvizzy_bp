@@ -4,8 +4,8 @@ import requests
 
 
 def compile_URL(job, city):
-    """
-    """
+    """compile url address to scrap"""
+    pass
     base_url = 'http://www.indeed.com/jobs?q='
     add_1_job = job
     add_precity = '&l='

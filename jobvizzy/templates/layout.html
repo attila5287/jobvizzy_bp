@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -97,15 +96,14 @@
 
 
 				<li class="nav-item">
-					<a class="nav-link" href="">
-						<i class="fas fa-print"></i>
-						<i class="fas fa-money-check    "></i>
-						mod 01 item</a>
+					<a class="nav-link" href="/profiler">
+						<i class="fas fa-dice    "></i>
+						Demo Mode</a>
 					</li>				
 					<li class="nav-item">
-					  <a class="nav-link" href=">
-						  <i class="fas fa-hourglass-half"></i>
-						  mod 02 item</a>
+					  <a class="nav-link" href="/register">
+						  <i class="fas fa-registered    "></i>
+						  Register!</a>
 					</li>
         {% endif %}
 				{% if current_user.is_authenticated %}
@@ -184,7 +182,7 @@
 							<i class="fas fa-fw fa-level-down-alt mx-2 mt-0"></i>
 						</p>
 			</div>
-			<div class="d-flex flex-row-reverse justify-content-around align-items-center mt-0 pt-2 px-2 mr-2">
+			<div class="d-flex flex-row-reverse justify-content-around align-items-center  mt-0 pt-2 px-2 mr-2">
 				<p class="text-primary text-center mt-0 mb-0 mx-2 p-0">
 					<i class="fas fa-level-down-alt  fa-rotate-90 mt-0"></i>
 				</p>
@@ -229,7 +227,11 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<i class="fas fa-chalkboard text-purple mt-1">i</i>
+				<i class="fas fa-info-circle    "></i>
+				<i class="fas fa-chalkboard-teacher"></i>
+					<i class="fas fa-cube"></i>
+					<i class="fas fa-arrow-right"></i>
+					<i class="fas fa-cubes"></i>
 				</button>
 			</div>
 		</div>
@@ -249,31 +251,35 @@
 				</div>
 				<!-- SIDEBAR -->
 				<div class="col-sm-3">
+					
 					<div class="content-section px-1 py-0 no-print mt-0">
+							<div class="container-fluid">
+							<div class="card bg-body border-body text-white">
+								<img class="card-img" src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_cageFreeBirds.png" alt="">
+								<div class="card-img-overlay text-center my-4">
+									<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owl_png02Large.png" class="my-4 p-1" alt="" style="height: 4rem;">
+
+									<img
+
+								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png" class="my-4" style="height: 3rem;">
+								</div>
+							</div>
+							</div>
 						<div class="container-fluid text-center mt-0 py-0 px-2">
 							<div
 								class="nav-flex-column text-center"
 								style="width: fit-content; height:max-content;"
 							>
 							<div class="container-fluid">
-								<div class="row">
-									<div class="col-sm-6">
-										<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="mr-auto" alt="" style="height: 8em; transform: scaleX(1);">
-									</div>
-									<div class="col-sm-6">
-										<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="mr-auto" alt="" style="height: 8em; transform: scaleX(1);">
-									</div>
-								</div>
-							</div>
 
 								{% if current_user.is_authenticated %}
 								<a
-									class="nav-item btn btn-large btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
 									href="{{url_for('scraper.profiler')}}"
 									data-toggle="tooltip"
 									data-placement="right"
-									title="generate a paystub, fill out the forms"
-									style="border-width: medium;"
+									title="profiler collects user input via forms"
+									style="border-width: medium;border-radius: 9px;"
 								>
 								<img
 								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro1.png"
@@ -288,7 +294,7 @@
 									data-toggle="tooltip"
 									data-placement="right"
 									title="generate a paystub, fill out the forms"
-									style="border-width: medium;"
+									style="border-width: medium;border-radius: 9px;"
 								>
 								<img
 								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper01.png"
@@ -303,7 +309,7 @@
 								data-toggle="tooltip"
 								data-placement="right"
 								title="generate a paystub, fill out the forms"
-								style="border-width: medium;"
+								style="border-width: medium;border-radius: 9px;"
 							>
 							<img
 							src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier01.png"
@@ -317,7 +323,7 @@
 							data-toggle="tooltip"
 							data-placement="right"
 							title="generate a paystub, fill out the forms"
-							style="border-width: medium;"
+							style="border-width: medium;border-radius: 9px;"
 						>
 						<img
 						src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu01.png"
@@ -351,38 +357,16 @@
 								
 								{% else %}
 								
+
 								<a
-									class="nav-item btn btn-large  btn-secondary nav-link text-purple   border-body pb-2 mt-2"
-									href=""
-									data-toggle="tooltip"
-									data-placement="right"
-									title="generate a paystub, fill out the forms"
-									style="border-width: medium;"
-								>
-									<i class="fa fa-print" aria-hidden="true"></i>
-									<strong>
-									PayStub
-									</strong>
-									</a>
-								</a>
-								<a
-									class="nav-item btn btn-large btn-secondary nav-link text-purple border-body pb-2 mt-2"
-									href=""
-									data-toggle="tooltip"
-									data-placement="right"
-									title="type clock in-out hours to calculate hours worked"
-									style="border-width: medium;"
-								>
-									<i class="fa fa-print" aria-hidden="true"></i> <strong>TimeSheet</strong></a>
-								</a>
-								<a
-									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2 mt-2   border-body"
+								class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
 									href="{{ url_for('main.about') }}"
 									data-toggle="tooltip"
 									data-placement="right"
 									title="information about app"
 									style="border-width: medium;"
 								>
+								
 
 								<i class="fas fa-info"> 
 									<strong>
@@ -392,7 +376,7 @@
 
 								</a>
 								<a
-									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2   border-body"
+									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
 									href="{{ url_for('users.register') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -403,7 +387,7 @@
 								</a>
 
 								<a
-									class="nav-item btn btn-secondary text-purple btn-large nav-link mb-2   border-body"
+									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
 									href="{{ url_for('users.login') }}"
 									data-toggle="tooltip"
 									data-placement="right"
@@ -472,20 +456,19 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<style>
 			body{
-				background-color: rgba(179, 139, 216, 0.462);
+				background-color: rgb(224, 208, 248);
 			}
 			.bg-body {
-				background-color: rgba(179, 139, 216, 0.462);
+				background-color: rgb(224, 208, 248);
 			  }
-			  .border-body {
-				border-color: rgba(179, 139, 216, 0.462);
+			.border-body {
+				border-color: rgba(224, 208, 248);
 				border-width: medium;
-			  }
-
-			  .text-purple {
+			}
+			.text-purple {
 				  color: rgb(114, 99, 212);
-			  }
-			  .bg-purple {
+			}
+			.bg-purple {
 				background-color: darkslateblue;
 			}
 			.bg-lavender {
