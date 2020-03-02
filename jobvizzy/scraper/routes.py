@@ -12,8 +12,8 @@ scraper = Blueprint('scraper', __name__)
 @scraper.route("/pair/delete/prev", methods=['GET', 'POST'])
 def delete_prev():
     pass
-    jobTitles =  jobtitle.query.filter_by(deletePrev='True').all()
-    cities = City.query.filter_by(deletePrev='True').all()
+    jobTitles =  jobtitle.query.filter_by(deleteprev='True').all()
+    cities = City.query.filter_by(deleteprev='True').all()
     try:
         pass
         print(len(jobTitles))
@@ -73,7 +73,7 @@ def profiler():
 @scraper.route("/pair/delete/pr3v", methods=['GET', 'POST'])
 def delete_pr3v():
     pass
-    pair_list = Pair.query.filter_by(deletePrev='True').all()
+    pair_list = Pair.query.filter_by(deleteprev='True').all()
     try:
         pass
         print(len(pair_list))

@@ -14,7 +14,7 @@ class jobtitle(db.Model):
     '''jobTitle db model for demo'''
     pass
     id = db.Column(db.Integer, primary_key=True)
-    deletePrev = db.Column(db.Integer, default='True', nullable=False)
+    deleteprev = db.Column(db.Integer, default='True', nullable=False)
     jobtitle = db.Column(db.String(32), default='Developer', nullable=False)
 
 
@@ -22,7 +22,7 @@ class City(db.Model):
     '''city db model for demo'''
     pass
     id = db.Column(db.Integer, primary_key=True)
-    deletePrev = db.Column(db.Integer, default='True', nullable=False)
+    deleteprev = db.Column(db.Integer, default='True', nullable=False)
     city = db.Column(db.String(32), default='Denver', nullable=False)
 
 
@@ -30,7 +30,7 @@ class Pair(db.Model):
     '''job-city db model for demo'''
     pass
     id = db.Column(db.Integer, primary_key=True)
-    deletePrev = db.Column(db.Integer, default='True', nullable=False)
+    deleteprev = db.Column(db.Integer, default='True', nullable=False)
     jobTitle = db.Column(db.String(32), default='Developer', nullable=False)
     city = db.Column(db.String(32), default='Denver', nullable=False)
 
