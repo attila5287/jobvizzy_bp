@@ -9,6 +9,23 @@ from flask_login import UserMixin
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
+class jobTitle(db.Model):
+    '''jobTitle db model for demo'''
+    pass
+    id = db.Column(db.Integer, primary_key=True)
+    deletePrev = db.Column(db.Integer, default='True', nullable=False)
+    jobTitle = db.Column(db.String(32), default='Developer', nullable=False)
+
+
+class City(db.Model):
+    '''city db model for demo'''
+    pass
+    id = db.Column(db.Integer, primary_key=True)
+    deletePrev = db.Column(db.Integer, default='True', nullable=False)
+    city = db.Column(db.String(32), default='Denver', nullable=False)
+
+
 class Pair(db.Model):
     '''job-city db model for demo'''
     pass
@@ -18,18 +35,6 @@ class Pair(db.Model):
     city = db.Column(db.String(32), default='Denver', nullable=False)
 
 
-class Jobtitle(db.Model):
-    pass
-    id = db.Column(db.Integer, primary_key=True)
-    job_title = db.Column(db.String(32), default='Developer', nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-class City(db.Model):
-    pass
-    id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(32), default='Denver', nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
 class User(db.Model, UserMixin):
     pass
     id = db.Column(db.Integer, primary_key=True)
@@ -38,8 +43,6 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.png')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
-    cities = db.relationship('City', backref='user', lazy=True)
-    jobtitles = db.relationship('Jobtitle', backref='user', lazy=True)
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 

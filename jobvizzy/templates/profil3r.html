@@ -9,44 +9,7 @@
             style="width: 66%;">
     </div>
 </div>
-    {% if posts ==[] %}
-    <br>
-    Jinja nested statement works great with try - except of Python! These are introductory posts only to show up when demonstration required:
-    <br>
-    
-    {% for post in PostDemoList %}
-    
-    <div class="media m-2">
-      <a class="d-flex align-self-bottom">
-        <div class="alert bg-maroon p-1 mr-2" role="alert">
-        <img class="rounded mr-1"
-        src="{{ url_for('static', filename='profile_pics/' + 'attila.jpg') }}" alt="" 
-        style="max-height: 6rem;">
-        </div>
-      </a>
-      <div class="alert bg-silver" role="alert">
-      
-      <div class="media-body">
-        
-        <h5 class="mt-1 my-1"> 
-          {{ post.title }}
-        </h5>
-        <p class="mt-1 my-1">
-          <i class="fa fa-caret-right" aria-hidden="true"></i>
-          {{ post.content }}
-        </p>
-        <p class="text-maroon text-right mt-1 my-0">
-            <i class="fas fa-user"></i>
-            {{ post.author }}
-            <em> @  {{ post.date_posted.strftime('%Y-%m-%d') }} </em> 
-            <i class="fas fa-window-close ml-2 mr-auto text-danger"></i>  
-            <i class="fas fa-edit mr-auto text-dark"></i>
-          </p>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-    {% else %}
+
 
 <div class="container mt-2">
     <div class="row">
@@ -57,16 +20,14 @@
                     <i class="fas fa-wrench"></i>
                     jobs selected:
                 </h3>
-{% for jobTitle in jobTitles %}
-        <button type="button"
-            class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
-            style="border-radius: 9px;">
-            <h1 class="text-light" style="font-family: monospace;">
-                {{jobTitle.jobTitle}}
-            </h1>
-        </button>
-{% endfor %}
 
+                <button type="button"
+                    class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
+                    style="border-radius: 9px;">
+                    <h1 class="text-light" style="font-family: monospace;">
+                        {{PairJobCity.jobTitle}}
+                    </h1>
+                </button>
             </div>
         </div>
     </div>
@@ -80,16 +41,14 @@
                     <i class="fas fa-hotel"></i>
                     city selected:
                 </h3>
-{% for city in cities %}
-        <button type="button"
-            class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
-            style="border-radius: 9px;border-width: medium;">
-            <h3 style="font-family: monospace;">
-                {{city.city}}
-            </h3>
-        </button>
-{% endfor %}
 
+                <button type="button"
+                    class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
+                    style="border-radius: 9px;border-width: medium;">
+                    <h3 style="font-family: monospace;">
+                        {{PairJobCity.city}}
+                    </h3>
+                </button>
 
 
             </div>
