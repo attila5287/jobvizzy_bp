@@ -2,101 +2,81 @@
 {% block content %}
 
 <div class="container-fluid">
-
     <div class="d-flex justify-content-center">
         <img display="d-flex"
             src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/proFit_sml.png"
             style="width: 66%;">
     </div>
 </div>
-    {% if jobTitles ==[] %}
-    <br>
-    Jinja nested statement works great with try - except of Python! These are introductory posts only to show up when demonstration required:
-    <br>
-    
-    {% for post in PostDemoList %}
-    
-    <div class="media m-2">
-      <a class="d-flex align-self-bottom">
-        <div class="alert bg-maroon p-1 mr-2" role="alert">
-        <img class="rounded mr-1"
-        src="{{ url_for('static', filename='profile_pics/' + 'attila.jpg') }}" alt="" 
-        style="max-height: 6rem;">
-        </div>
-      </a>
-      <div class="alert bg-silver" role="alert">
-      
-      <div class="media-body">
-        
-        <h5 class="mt-1 my-1"> 
-          {{ post.title }}
-        </h5>
-        <p class="mt-1 my-1">
-          <i class="fa fa-caret-right" aria-hidden="true"></i>
-          {{ post.content }}
-        </p>
-        <p class="text-maroon text-right mt-1 my-0">
-            <i class="fas fa-user"></i>
-            {{ post.author }}
-            <em> @  {{ post.date_posted.strftime('%Y-%m-%d') }} </em> 
-            <i class="fas fa-window-close ml-2 mr-auto text-danger"></i>  
-            <i class="fas fa-edit mr-auto text-dark"></i>
-          </p>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-    {% else %}
 
-<div class="container mt-2">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- display user preferences -->
-            <div class="alert alert-secondary bg-lavender p-4 text-light">
-                <h3 class="mb-4">
-                    <i class="fas fa-wrench"></i>
-                    jobs selected:
-                </h3>
-{% for jobTitl3 in jobTitles %}
-        <button type="button"
-            class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
-            style="border-radius: 9px;">
-            <h1 class="text-light" style="font-family: monospace;">
-                {{jobTitl3.jobtitle}}
-            </h1>
-        </button>
-{% endfor %}
+{% if jobTitles ==[] %}
+    <br>
+    Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
+    <br>
 
+{% else %}
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- display user preferences -->
+                <div class="alert alert-secondary bg-lavender p-4 text-light">
+                    <h3 class="mb-4">
+                        <i class="fas fa-wrench"></i>
+                        jobs selected:
+                    </h3>
+                    {% for jobTitl3 in jobTitles %}
+                            <button type="button"
+                                class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
+                                style="border-radius: 9px;">
+                                <h1 class="text-light" style="font-family: monospace;">
+                                    {{jobTitl3.jobtitle}}
+                                </h1>
+                            </button>
+                    {% endfor %}
+
+                </div>
             </div>
         </div>
     </div>
-    {% endif %}
+
+{% endif %}
+    
+{% if cities ==[] %}
+    <br>
+    Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
+    <br>
+
+{% else %}
+
+    <div class="container mt-2">
     <div class="row">
         <div class="col-md-12">
-            <!-- display user preferences -->
-
             <div class="alert alert-secondary bg-lavender p-4 text-light">
                 <h3 class="mb-4">
-
                     <i class="fas fa-hotel"></i>
-                    city selected:
-                </h3>
-{% for city in cities %}
-        <button type="button"
-            class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
-            style="border-radius: 9px;border-width: medium;">
-            <h3 style="font-family: monospace;">
-                {{city.city}}
-            </h3>
-        </button>
-{% endfor %}
+                    city selected:</h3>
+
+            {% for city in cities %}
+                <button type="button"
+                    class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
+                    style="border-radius: 9px;border-width: medium;">
+                    <h3 style="font-family: monospace;">
+                        {{city.city}}
+                    </h3>
+                </button>
+            {% endfor %}
 
 
 
             </div>
         </div>
     </div>
-</div>
+    </div>
+
+{% endif %}
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
@@ -141,31 +121,28 @@
 
 
 <div class="container-fluid mb-2">
+
     <form method="POST" action="">
+
         <div class="row">
             {% for field in form %}
             <div class="col-sm-6">
-
                 <i class="fas fa-asterisk ml-2 my-0">
-                    
                     {{ field.label}} 
-
                 </i>
 
-                {{
-                    field(class="form-control form-control-info form-control-lg border-body text-muted mb-2 p-4", style="border-radius: 1rem;") 
-                }}
+                {{field(class="form-control form-control-info form-control-lg border-body text-muted mb-2 p-4", style="border-radius: 1rem;") }}
             </div>
             {% endfor %}
         </div>
         
-            <button type="submit" class="btn btn-block btn-primary text-light btn-rounded btn-lg  box-shadow"
-                    style="border-radius: 9px;">
-                    <h3>
-                    <i class="fas fa-paper-plane"></i>
-                    add city/job!
-                </h3>
-            </button>
+        <button type="submit" class="btn btn-block btn-primary text-light btn-rounded btn-lg  box-shadow"
+                style="border-radius: 9px;">
+            <h3>
+            <i class="fas fa-paper-plane"></i>
+            add city/job!
+            </h3>
+        </button>
         
     </form>
 </div>
