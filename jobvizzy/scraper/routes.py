@@ -16,12 +16,22 @@ scraper = Blueprint('scraper', __name__)
 @scraper.route("/tabulator", methods=['GET', 'POST'])
 def tabulator():
     pass
+    jobs_from_db, cities_from_db = jobtitle.query.all(), City.query.all()
 
+    jobTitles_unique, cities_unique = list(
+        set([jobTitl3.jobtitle for jobTitl3 in jobs_from_db])), list(set([city.city for city in cities_from_db]))
+
+    inventory = scrapListFrameDict(
+        job_list=jobTitles_unique,
+        city_list=cities_unique,
+    )
+    print(inventory)
 
     return render_template(
         'tabulator.html',
         title='Results(b)',
         legend='tabulator',
+        inventory=inventory,
     )
 
 @scraper.route("/croupier", methods=['GET', 'POST'])
@@ -37,6 +47,8 @@ def croupier():
         job_list=jobTitles_unique,
         city_list=cities_unique,
     )
+
+    print(inventory)
 
 
     return render_template(

@@ -1,7 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="d-flex justify-content-between">
+<style>
+  	.list-group-hover li:hover a {
+		background-color: rgb(222, 127, 246);
+	}
+	.list-group-hover li:hover strong {
+		background-color: rgba(222, 127, 246);
+	}
 
+	.list-group-hover li:hover i {
+		background-color: rgba(222, 127, 246);
+  }
+  
+</style>
+<div class="d-flex justify-content-between">
         <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
         style="border-radius: 16px;">
                 <a href="/profiler" class="alert-link" >
@@ -68,4 +80,91 @@
       </div>
 
 </div>
+
+<br>
+<div class="row">
+  <div class="container-fluid">
+    <ul
+      class="list-group list-group-hover bg-orchid px-4 py-3"
+    >
+      <li class="list-group-item active border-light text-center py-4 mx-3 my-0"
+      style="border-radius: 2rem;"
+      >
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers02.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 4rem;		transform: scale(-1, 1);"
+        />                
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlNeon.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 3rem;"
+        />                
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 4rem;		transform: scale(-1, 1);"
+        />        
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlSilver.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 4rem;"
+        />
+        
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 4rem;"
+        />
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlPurple.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 3rem;"
+        />        
+        <img
+          src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers02.png"
+          class="img-fluid text-center"
+          alt=""
+          style="max-height: 4rem;"
+        />        
+      </li>
+      {% for item in inventory %}
+      <li class="list-group-item active m-3"
+      style="border-radius: 1rem;"
+      >
+        <a class="float-left">
+          <i class="fas fa-hotel">
+            {{item.cityJob}}
+          </i>
+        </a>
+
+        
+        <strong class="text-center" style="font-size: larger;">
+        <i class="fas fa-wrench text-primary">
+          {{ item.Title }}                          
+        </i>          
+        </strong>
+
+        <i>{{item.Company}}</i>
+        <br>
+        <em>{{ item.Description}}</em>
+      
+        <a
+          href="{{ url_for('scraper.tabulator') }}"
+          class="btn btn-light btn-sm float-right"
+        >
+          <i class="fas fa-check" href="/"></i>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
 {% endblock content %}

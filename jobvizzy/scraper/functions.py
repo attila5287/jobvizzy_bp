@@ -64,7 +64,7 @@ def desc_column(soup):
     col_desc = []
     for itersoup in soup.find_all(class_="result"):
         try:
-            description = itersoup.find('span', {'class': 'summary'}).\
+            description = itersoup.find('span', {'class_': 'summary'}).\
                 text.replace('\n', '')
         except:
             description = 'None'
