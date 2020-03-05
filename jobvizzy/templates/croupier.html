@@ -68,23 +68,59 @@
 
 </div>
 
+<style>
+  .bg-charcoal {
+    background-color: rgba(37, 37, 37, 0.744);
+  }
+</style>
 
 <div class="row">
                 <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
                 {% for item in inventory %}
 
-                <div class="col-xs-4">
-                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem; "><i class="favicon" aria-hidden="true" src="favicon.ico"></i>
-                        <div class="card-header">{{item.cityJob}}</div>
-                        <div class="card-body" style="background-color: #bb7dee">
-                            <h4 class="card-title">{{ item.Title }}</h4>
-                            <p class="card-text">{{ item.Description}}</p>
-                        </div>
-                        <div class="card-footer">
-                            {{item.Company}}
-                        </div>
-                        <a href="{{item.URLs}}" class="badge badge-secondary">apply</a>
+                <div class="col-sm-4">
+                    
+                  <div class="card text-light bg-primary mb-3 py-3 px-2 card-rounded border-secondary" 
+                  style="border-radius: 1rem;
+                  border-width: medium;
+                  "
+                  >
+                    
+                    <div class="card-header card-header-rounded bg-charcoal border-light mb-2"
+                    style="border-width: medium; border-radius: 1rem;">
+                    <i class="fas fa-hotel"></i>
+                    {{item.cityJob}}
                     </div>
+
+                    <div class="card-body card-body-rounded py-3" style="background-color: #bb7dee; border-radius: 1rem;">
+
+                      <h4 class="card-title">
+                        <i class="fas fa-wrench text-primary"></i>
+                          {{ item.Title }}                          
+                        </h4>
+
+                        <p class="card-text">
+                          <em>
+                          {{ item.Description}}
+                          </em>
+                        </p>
+                    </div>
+
+                    <div class="card-footer card-footer-rounded bg-charcoal border-light mt-2" 
+                    style="border-width: medium;border-radius: 1rem;">
+                        {{item.Company}}
+                    </div>
+
+                    <a href="{{item.URLs}}" class="alert-link mt-2" >
+                    <button type="button" name="" id="" class="btn btn-secondary btn-md btn-block btn-rounded bg-body border-body py-2" style="border-radius: 10px;">
+                      <i class="fas fa-external-link-alt"></i>
+                        <strong>
+                          visit url
+                        </strong>
+                      </button>
+                    </a>
+
+                  </div>
                 </div>
 
                 {% endfor %}

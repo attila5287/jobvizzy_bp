@@ -33,11 +33,10 @@ def croupier():
     jobTitles_unique, cities_unique = list(
         set([jobTitl3.jobtitle for jobTitl3 in jobs_from_db])), list(set([city.city for city in cities_from_db]))
 
-    inventory = list(scrapListFrameDict(
+    inventory = scrapListFrameDict(
         job_list=jobTitles_unique,
         city_list=cities_unique,
-    ))
-    print(inventory)
+    )
 
 
     return render_template(
