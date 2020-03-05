@@ -43,7 +43,6 @@ def location_column(soup):
                 text.replace('\n', '')
         except:
             location = 'None'
-#             - - -
         col_location.append(location)
     return col_location
 
@@ -61,7 +60,6 @@ def company_column(soup):
     return col_company
 
 
-
 def desc_column(soup):
     col_desc = []
     for itersoup in soup.find_all(class_="result"):
@@ -70,25 +68,24 @@ def desc_column(soup):
                 text.replace('\n', '')
         except:
             description = 'None'
-#             - - -
+      
         col_desc.append(description.strip())
-    return col_desc
 
+    return col_desc
 
 
 def url_column(soup):
     col_href = []
     base_url = 'http://www.indeed.com'
-    for iterfoo in soup.find_all(class_="result"):
+    for element in soup.find_all(class_="result"):
         try:
-            href = iterfoo.find('a')['href']
+            href = element.find('a')['href']
             col_href.append((base_url+href).strip())
         except:
             href = 'None'
             col_href.append(href)
 
     return list(col_href)
-
 
 
 def frame_indeed(soup):
@@ -108,7 +105,6 @@ def parse_n_frame(url):
                          'Location': location_column(soup),
                          'Description': desc_column(soup),
                          'URLs': url_column(soup)})
-
 
 
 def scrapListFrame(job_list, city_list):
@@ -142,9 +138,9 @@ def scrapListFrameHTML(job_list, city_list):
     return __html__
 
 
-# if __name__ == "__main__":
-#     pass
-#     print(scrapListFrameHTML(
-#         ['developer'],
-#         ['denver'],
-#     ))
+if __name__ == "__main__":
+    pass
+    print(scrapListFrameHTML(
+        ['developer'],
+        ['denver'],
+    ))

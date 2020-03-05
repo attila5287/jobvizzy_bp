@@ -1,65 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="d-flex justify-content-between">
 
-        <button type="button" name="" id="" class="btn btn-lg btn-block btn-rounded bg-body border-body disabled"
-        style="border-radius: 16px;">
-                <a href="/profiler" class="alert-link" >
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
         <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/proFit.png" style="height: 5rem;">
-                </a>
-            <i class="fas fa-map-marked text-secondary m-2">
-                you are currently here
-            </i>
-            <br>
-            <i class="fas fa-luggage-cart fa-2x text-secondary"></i><i class="text-secondary">
-                <strong> Hit the next button when lists are done!</strong>
-            </i>
-        </button>
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-        
-        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/scraper" class="alert-link" >                    
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png" style="height: 4rem;">
-                </a>
-                <i class="fas fa-plane-departure mt-2 text-secondary"> Ready when you are!</i>
-        </button>        
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-
-        <div class="d-flex flex-column bd-highlight mb-3">
-            <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/croupier" class="alert-link" >
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier03.png" style="height: 3rem;">
-                </a>
-                <i class="fas fa-plane-arrival text-secondary"> Deal the cards!</i>
-        </button>           
-        <strong class="text-center text-primary">
-            or
-        </strong>
-        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/tabulator" class="alert-link" >
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu03.png" style="height: 3rem;">
-                </a>
-                <i class="fas fa-plane-arrival text-secondary">Table service please!</i>
-        </button>           
+            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/proFit_sml.png"
+            style="width: 66%;">
     </div>
-
 </div>
 
-
 {% if jobTitles ==[] %}
-
-<br>
-Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
-<br>
+    <br>
+    Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
+    <br>
 
 {% else %}
 
@@ -139,14 +92,9 @@ Jinja nested statement works great with try - except of Python! These are introd
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="d-flex bg-border justify-content-center">
-                    <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-                    style="border-radius: 16px;">
-                            <a href="/scraper" class="alert-link" style="font-family: monospace; color: thistle">
-                    <img display="d-flex"
-                        src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png" style="height: 5rem;">
-                            </a>
-                    </button>
+            <div class="d-flex justify-content-center">
+                <img display="d-flex"
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png">
             </div>
         </div>
     </div>
