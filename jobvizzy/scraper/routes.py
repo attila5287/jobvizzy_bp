@@ -6,6 +6,8 @@ from flask_login import current_user, login_required
 from jobvizzy import db
 from jobvizzy.models import Post, User, City, Pair, jobtitle
 from jobvizzy.scraper.forms import JobForm, CityForm, JobCityPairForm
+
+from jobvizzy.scraper.functions import scrapListFrameDict
 # from jobvizzy.scraper.functions import 
 
 scraper = Blueprint('scraper', __name__)
@@ -14,6 +16,7 @@ scraper = Blueprint('scraper', __name__)
 @scraper.route("/tabulator", methods=['GET', 'POST'])
 def tabulator():
     pass
+
 
     return render_template(
         'tabulator.html',
@@ -24,17 +27,24 @@ def tabulator():
 @scraper.route("/croupier", methods=['GET', 'POST'])
 def croupier():
     pass
-    # jobTitles_unique =
-    # cities_unique =
 
-    # functions.scrapListFrameDict(
-    #     jobTitles_unique=,
-    #     cities_unique=,
-    # )
+    jobs_from_db, cities_from_db = jobtitle.query.all(), City.query.all()
+
+    jobTitles_unique, cities_unique = list(
+        set([jobTitl3.jobtitle for jobTitl3 in jobs_from_db])), list(set([city.city for city in cities_from_db]))
+
+    inventory = list(scrapListFrameDict(
+        job_list=jobTitles_unique,
+        city_list=cities_unique,
+    ))
+    print(inventory)
+
+
     return render_template(
         'croupier.html',
         title='Results(a)',
         legend='Croupier',
+        inventory=inventory,
     )
 
 
