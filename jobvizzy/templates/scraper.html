@@ -1,132 +1,165 @@
 {% extends "layout.html" %}{% block content %}
 
-<div class="d-flex justify-content-between">
-
-        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body text-secondary"
-        style="border-radius: 16px;">
+<div class="row">
+    <div class="col-sm-3">
+        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
+            style="border-radius: 16px;">
             <a href="/profiler" class="alert-link">
-            <img display="d-flex"
-                src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro3.png" style="height: 3rem;">
-                <br>
-                <i class="fas fa-luggage-cart fa-2x mt-2 text-secondary"></i>
-                <i class="text-secondary mt-2"> go back if any jobs/cities to add or remove</i>
+                <img display="d-flex"
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro3.png"
+                    style="height: 3rem;">
             </a>
-            
-            
-
         </button>
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-        
-        <button type="button" name="" id="" class="btn btn-lg btn-block btn-rounded bg-body border-body disabled"
-        style="border-radius: 16px;">
-            <a href="" class="alert-link" >                    
-            <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scrapFit.png" style="height: 5rem;">
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-luggage-cart"></i>
+                </span>
+                Go back to add jobs and cities for app to scrap from indeed
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <button type="button" name="" id="" class="btn btn-lg btn-block btn-rounded bg-body border-body pl-0"
+            style="border-radius: 16px;">
+            <a href="/scraper" class="alert-link">
+                <img 
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scrapFit.png"
+                    style="height: 3rem;">
             </a>
-            <i class="fas fa-map-marked text-secondary">
-                you are currently here
-            </i>
-            <br>
-            <i class="fas fa-plane-departure fa-2x mt-2 text-secondary"></i><i class="text-secondary">
-                <strong>Hit either of next buttons to display results!</strong>
-            </i>
-
-
-
-        </button>        
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-
-        <div class="d-flex flex-column bd-highlight mb-3">
-            <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
+        </button>
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-map-marked text-info m-2"></i>
+                </span>
+                <i class="text-info">
+                    you are currently here
+                </i>
+            </li>
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-plane-departure mt-2 text-secondary"></i>
+                </span>
+                Ready when you are!
+            </li>
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+                Now tell us how you would like the app display results:
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
             style="border-radius: 16px;">
-                    <a href="/croupier" class="alert-link" >
-                    <img display="d-flex"
-                src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier03.png" style="height: 3rem;">
-                    </a>
-                    <i class="fas fa-plane-arrival text-secondary mt-2">
-                        All in! Display the results in cards
-                    </i>
-
-            </button>           
-            <strong class="text-center text-primary">
-                or
-            </strong>
-            <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
+            <a href="/croupier" class="alert-link">
+                <img display="d-flex"
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier03.png"
+                    style="height: 3rem;">
+            </a>
+        </button>
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-plane-arrival text-secondary"></i>
+                </span>
+                Results in grid-like format...
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
             style="border-radius: 16px;">
-                    <a href="/tabulator" class="alert-link" >
-            <img display="d-flex"
-                src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu03.png" style="height: 3rem;">
-                    </a>
-
-                    <i class="fas fa-plane-arrival text-secondary mt-2">
-                        All in! Display the results in table format
-                    </i>
-            </button>           
-        </div>
-
+            <a href="/tabulator" class="alert-link">
+                <img display="d-flex"
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu03.png"
+                    style="height: 3rem;">
+            </a>
+        </button>
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-plane-arrival text-secondary"></i>
+                </span>
+                Results in table format...
+            </li>
+        </ul>
+    </div>
 </div>
 
-{% if jobTitles ==[] %}
+
+
+{% if jobTitles_unique ==[] %}
+<br>
 This is the message to be displayed when there are no jobs to 
 scrap so why dont you go to Forms page (Profiler) and add some!
+
 {% else %}
 <div class="container mt-2">
     <div class="row">
         <div class="col-md-12">
+
             <!-- display user preferences -->
-            <div class="alert alert-secondary bg-lavender p-4 text-light">
+            <div class="alert alert-secondary bg-lavender p-4 text-light alert-rounded"
+            style="border-radius: 24px;"
+            >
                 <h3 class="mb-4">
                     <i class="fas fa-wrench"></i>
                     jobs selected:
                 </h3>
+
+
                 {% for jobTitl3 in jobTitles_unique %}
-                        <button type="button"
-                            class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
-                            style="border-radius: 9px;">
-                            <h1 class="text-light" style="font-family: monospace;">
-                                {{jobTitl3}}
-                            </h1>
-                        </button>
+                <button type="button"
+                    class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
+                    style="border-radius: 9px;">
+                    <h1 class="text-light" style="font-family: monospace;">
+                        {{jobTitl3}}
+                    </h1>
+                </button>
                 {% endfor %}
 
             </div>
+            
         </div>
     </div>
 </div>
 {% endif %}
     
 {% if cities_unique ==[] %}
-
+<br>
 This is the message to be displayed when there are no cities to 
 scrap so why dont you go to Forms page (Profiler) and add some!
 
 {% else %}
 
 <div class="container mt-2">
-  <div class="row">
-      <div class="col-md-12">
-          <div class="alert alert-secondary bg-lavender p-4 text-light">
-              <h3 class="mb-4">
-                <i class="fas fa-hotel"></i>
-                city selected:
-              </h3>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="alert alert-secondary bg-lavender p-4 text-light alert-rounded"
+            style="border-radius: 24px;">
+                <h3 class="mb-4">
+                    
+                    <i class="fas fa-hotel"></i>
+                    cities selected:</h3>
 
-            {% for city in cities_unique %}
-                <button 
-                type="button"
-                class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
-                style="border-radius: 9px;border-width: medium;">
+                {% for city in cities_unique %}
+                <button type="button"
+                    class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
+                    style="border-radius: 9px;border-width: medium;">
                     <h3 style="font-family: monospace;">
                         {{city}}
                     </h3>
                 </button>
-            {% endfor %}
+                {% endfor %}
 
-          </div>
-      </div>
-  </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endif %}

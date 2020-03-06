@@ -25,16 +25,6 @@ class City(db.Model):
     deleteprev = db.Column(db.Integer, default='True', nullable=False)
     city = db.Column(db.String(32), default='Denver', nullable=False)
 
-
-class Pair(db.Model):
-    '''job-city db model for demo'''
-    pass
-    id = db.Column(db.Integer, primary_key=True)
-    deleteprev = db.Column(db.Integer, default='True', nullable=False)
-    jobTitle = db.Column(db.String(32), default='Developer', nullable=False)
-    city = db.Column(db.String(32), default='Denver', nullable=False)
-
-
 class User(db.Model, UserMixin):
     pass
     id = db.Column(db.Integer, primary_key=True)

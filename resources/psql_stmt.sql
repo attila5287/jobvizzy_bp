@@ -17,9 +17,10 @@ DROP TABLE
 t CASCADE
 
 -- -- Remove all data in a table
-TRUNCATE TABLE
-t CASCADE
+TRUNCATE TABLE t CASCADE
 
+TRUNCATE TABLE public.pair CASCADE;
+DROP TABLE public.pair CASCADE;
 
 -- delete * from public.
 

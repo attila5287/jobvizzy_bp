@@ -1,110 +1,159 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="d-flex justify-content-between">
 
+
+<div class="row">
+    <div class="col-sm-3">
         <button type="button" name="" id="" class="btn btn-lg btn-block btn-rounded bg-body border-body disabled"
-        style="border-radius: 16px;">
-                <a href="/profiler" class="alert-link" >
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/proFit.png" style="height: 5rem;">
-                </a>
-            <i class="fas fa-map-marked text-secondary m-2">
-                you are currently here
-            </i>
-            <br>
-            <i class="fas fa-luggage-cart fa-2x text-secondary"></i><i class="text-secondary">
-                <strong> Hit the next button when lists are done!</strong>
-            </i>
+            style="border-radius: 16px;">
+            <a href="/profiler" class="alert-link">
+                <img 
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/proFit.png"
+                    style="height: 3rem;">
+            </a>
         </button>
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-        
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-map-marked text-info m-2"></i>
+                </span>
+                <i class="text-info">
+                    you are currently here
+                </i>
+            </li>
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-luggage-cart"></i>
+                </span>
+                Add jobs and cities for app to scrap from indeed
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
         <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/scraper" class="alert-link" >                    
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png" style="height: 4rem;">
-                </a>
-                <i class="fas fa-plane-departure mt-2 text-secondary"> Ready when you are!</i>
-        </button>        
-
-        <i class="fas fa-chevron-right text-primary align-self-center"></i>
-
+            style="border-radius: 16px;">
+            <a href="/scraper" class="alert-link">
+                <img display="d-flex"
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png"
+                    style="height: 3rem;">
+            </a>
+        </button>
+        <ul class="fa-ul text-secondary py-1">
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-plane-departure mt-2 text-secondary"></i>
+                </span>
+                Ready when you are!
+            </li>
+            <li>
+                <span class="fa-li">
+                    <i class="fas fa-chevron-up"></i>
+                </span>
+                Hit above button Scraper when done...
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
         <div class="d-flex flex-column bd-highlight mb-3">
             <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/croupier" class="alert-link" >
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier03.png" style="height: 3rem;">
+                style="border-radius: 16px;">
+                <a href="/croupier" class="alert-link">
+                    <img 
+                        src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier03.png"
+                        style="height: 3rem;" width="inherit">
                 </a>
-                <i class="fas fa-plane-arrival text-secondary"> Deal the cards!</i>
-        </button>           
-        <strong class="text-center text-primary">
-            or
-        </strong>
-        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
-        style="border-radius: 16px;">
-                <a href="/tabulator" class="alert-link" >
-        <img display="d-flex"
-            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu03.png" style="height: 3rem;">
-                </a>
-                <i class="fas fa-plane-arrival text-secondary">Table service please!</i>
-        </button>           
+            </button>
+            <ul class="fa-ul text-secondary py-1">
+                <li>
+                    <span class="fa-li">
+                        <i class="fas fa-plane-arrival text-secondary"></i>
+                    </span>
+                    Results in grid-like format...
+                </li>
+            </ul>
+        </div>
+
     </div>
-
+    <div class="col-sm-3">
+        <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
+            style="border-radius: 16px;">
+            <a href="/tabulator" class="alert-link">
+                <img 
+                    src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu03.png"
+                    style="height: 3rem;">
+            </a>
+        </button>
+        <ul class="fa-ul text-secondary py-1">
+        <li>
+            <span class="fa-li">
+                <i class="fas fa-plane-arrival text-secondary"></i>
+            </span>
+            Results in table format...
+        </li>
+        </ul>
+    </div>
 </div>
-
 
 {% if jobTitles ==[] %}
 
 <br>
-Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
+Jinja nested statement works great with try - except of Python! These are introductory items only to show up when
+demonstration required:
 <br>
 
 {% else %}
 
-    <div class="container mt-2">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- display user preferences -->
-                <div class="alert alert-secondary bg-lavender p-4 text-light">
-                    <h3 class="mb-4">
-                        <i class="fas fa-wrench"></i>
-                        jobs selected:
-                    </h3>
-                    {% for jobTitl3 in jobTitles %}
-                            <button type="button"
-                                class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
-                                style="border-radius: 9px;">
-                                <h1 class="text-light" style="font-family: monospace;">
-                                    {{jobTitl3.jobtitle}}
-                                </h1>
-                            </button>
-                    {% endfor %}
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-12">
 
-                </div>
+            <!-- display user preferences -->
+            <div class="alert alert-secondary bg-lavender p-4 text-light alert-rounded"
+            style="border-radius: 24px;"
+            >
+                <h3 class="mb-4">
+                    <i class="fas fa-wrench"></i>
+                    jobs selected:
+                </h3>
+
+
+                {% for jobTitl3 in jobTitles %}
+                <button type="button"
+                    class="btn btn-info disabled text-light btn-rounded btn-lg py-2 px-5 mx-2 box-shadow"
+                    style="border-radius: 9px;">
+                    <h1 class="text-light" style="font-family: monospace;">
+                        {{jobTitl3.jobtitle}}
+                    </h1>
+                </button>
+                {% endfor %}
+
             </div>
+            
         </div>
     </div>
+</div>
 
 {% endif %}
-    
+
 {% if cities ==[] %}
-    <br>
-    Jinja nested statement works great with try - except of Python! These are introductory items only to show up when demonstration required:
-    <br>
+<br>
+Jinja nested statement works great with try - except of Python! These are introductory items only to show up when
+demonstration required:
+<br>
 
 {% else %}
 
-    <div class="container mt-2">
+<div class="container mt-2">
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-secondary bg-lavender p-4 text-light">
+                <div class="alert alert-secondary bg-lavender p-4 text-light alert-rounded"
+            style="border-radius: 24px;">
                 <h3 class="mb-4">
+                    
                     <i class="fas fa-hotel"></i>
-                    city selected:</h3>
+                    cities selected:</h3>
 
-            {% for city in cities %}
+                {% for city in cities %}
                 <button type="button"
                     class="btn btn-primary disabled btn-rounded btn-lg py-2 px-5 mx-2 border-light text-center"
                     style="border-radius: 9px;border-width: medium;">
@@ -112,14 +161,14 @@ Jinja nested statement works great with try - except of Python! These are introd
                         {{city.city}}
                     </h3>
                 </button>
-            {% endfor %}
+                {% endfor %}
 
 
 
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 {% endif %}
 
@@ -127,26 +176,27 @@ Jinja nested statement works great with try - except of Python! These are introd
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <div class="d-flex bg-info justify-content-center">
-
-                <button type="button" name="" id="" class="btn btn-info btn-lg btn-block">
-                        <a href="/pair/delete/prev" class="alert-link" style="font-family: monospace; color: thistle"><h1>RES3T</h1>
+                <button type="button" name="" id="" class="btn btn-info btn-lg btn-block btn-rounded"
+                style="border-radius: 24px;"
+                >
+                    <a href="/pair/delete/prev" style="font-family: monospace; color: thistle">
+                        <h1>RES3T</h1>
                         <i class="fas fa-battery-full fa-2x"></i>
                         <i class="fas fa-battery-empty fa-2x"></i>
-                        </a>
+                    </a>
                 </button>
-
-            </div>
         </div>
         <div class="col-sm-6">
             <div class="d-flex bg-border justify-content-center">
-                    <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
+                <button type="button" name="" id=""
+                    class="btn btn-primary btn-lg btn-block btn-rounded bg-body border-body"
                     style="border-radius: 16px;">
-                            <a href="/scraper" class="alert-link" style="font-family: monospace; color: thistle">
-                    <img display="d-flex"
-                        src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png" style="height: 5rem;">
-                            </a>
-                    </button>
+                    <a href="/scraper" class="alert-link" style="font-family: monospace; color: thistle">
+                        <img display="d-flex"
+                            src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper03.png"
+                            style="height: 5rem;">
+                    </a>
+                </button>
             </div>
         </div>
     </div>
@@ -180,23 +230,26 @@ Jinja nested statement works great with try - except of Python! These are introd
             {% for field in form %}
             <div class="col-sm-6">
                 <i class="fas fa-asterisk ml-2 my-0">
-                    {{ field.label}} 
+                    {{ field.label}}
                 </i>
 
                 {{field(class="form-control form-control-info form-control-lg border-body text-muted mb-2 p-4", style="border-radius: 1rem;") }}
             </div>
             {% endfor %}
         </div>
-        
+
         <button type="submit" class="btn btn-block btn-primary text-light btn-rounded btn-lg  box-shadow"
-                style="border-radius: 9px;">
+            style="border-radius: 9px;">
             <h3>
-            <i class="fas fa-paper-plane"></i>
-            add city/job!
+                <i class="fas fa-paper-plane"></i>
+                add city/job!
             </h3>
         </button>
-        
+
     </form>
 </div>
+
+
+
 
 {% endblock content %}
