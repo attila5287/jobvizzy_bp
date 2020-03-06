@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 		<script src="{{ url_for('static', filename='holder.js') }}"></script>
@@ -16,28 +14,16 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
 
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/pulse/bootstrap.min.css"
-		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/pulse/bootstrap.min.css" />
 
 
-		<link
-			rel="icon"
-			type="image/x-icon"
-			class="favicon"
-			href="
+		<link rel="icon" type="image/x-icon" class="favicon" href="
 			https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlNeon.png
-			"
-		/>
-		
-		
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-			integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-			crossorigin="anonymous"
-		/>
+			" />
+
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+			integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
 
 		{% if title %}
 		<title> JobVizzy | {{ title }}</title>
@@ -45,157 +31,159 @@
 		<title> JobVizzy | </title>
 		{% endif %}
 
-	<style>
-		@media print
-{    
-    .no-print, .no-print *
-    {
-        display: none !important;
-    }
-}
-	</style>			
+		<style>
+			@media print {
+
+				.no-print,
+				.no-print * {
+					display: none !important;
+				}
+			}
+
+		</style>
 
 	</head>
-	<body >
+
+	<body>
 		<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top mb-1 px-2">
 			<div class="container">
-							<a class="navbar-brand" href="http://jobvizzy.herokuapp.com">
-							<img 
-						src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlSilver.png" style="height: 3rem;">
-						</a>
+				<a class="navbar-brand" href="http://jobvizzy.herokuapp.com">
+					<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlSilver.png"
+						style="height: 3rem;">
+				</a>
 
-						<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<i class="fas fa-arrow-circle-down text-secondary fa-2x"></i>
-						</button>
+				<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+					aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-arrow-circle-down text-secondary fa-2x"></i>
+				</button>
 
-						<div class="collapse navbar-collapse" id="collapsibleNavId">
-							<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<div class="collapse navbar-collapse" id="collapsibleNavId">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-							{% if current_user.is_authenticated %}
+						{% if current_user.is_authenticated %}
 
-							<li class="nav-item">
-							<a class="nav-link" 
-							href="{{url_for('scraper.profiler')}}"
-							>
+						<li class="nav-item">
+							<a class="nav-link" href="{{url_for('scraper.profiler')}}">
 								<i class="fas fa-question    "></i>
 								Forms
 								&middot;
 								Profiler</a>
-							</li>				
+						</li>
 
-							<li class="nav-item">
-								<a class="nav-link" href="/home">
-									<i class="fas fa-database"></i>
-									Test
-									</a>
-								</li>				
-							{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="/home">
+								<i class="fas fa-database"></i>
+								Test
+							</a>
+						</li>
+						{% else %}
 
-							<li class="nav-item">
-								<a class="nav-link" href="/profiler">
-								<i class="fas fa-question    "></i>
+						<li class="nav-item">
+							<a class="nav-link" href="/profiler">
+								<i class="fas fa-flag-checkered    "></i>
 								Forms
 								&middot;
-								Profiler</a>
-								</li>				
-								<li class="nav-item">
-									<a class="nav-link" href="/register">
-										<i class="fas fa-registered    "></i>
-										Register!</a>
-								</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/home">
-									<i class="fas fa-database"></i>
-									Test</a>
-								</li>				
-								{% endif %}
-							{% if current_user.is_authenticated %}
-							<!-- auth usr -->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="fas fa-user-cog"></i>
-									
-									UserMenu</a>
-								<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
-									<a class="dropdown-item" href="">
+								Start!</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/register">
+								<i class="fas fa-registered    "></i>
+								Register!</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/home">
+								<i class="fas fa-database"></i>
+								Test</a>
+						</li>
+						{% endif %}
+						{% if current_user.is_authenticated %}
+						<!-- auth usr -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
+								<i class="fas fa-user-cog"></i>
+
+								UserMenu</a>
+							<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
+								<a class="dropdown-item" href="">
 									<i class="fas fa-hotel    "></i>
-										Forms|Add City</a>
-									<a class="dropdown-item" href="">
-										<i class="fas fa-wrench"></i>
-										Forms|Add Job</a>
-								</div>
-							</li>
-							{% else %}
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="users only, register first!">
-									<i class="fas fa-user-cog text-muted"></i>
-									UsersOnly</a>
-								<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
-									<a class="dropdown-item" href="">
-										<i class="fas fa-hotel    "></i>
-										Forms|Add City</a>
-									<a class="dropdown-item" href="">
-										<i class="fas fa-wrench"></i>
-										Forms|Add Job</a>
-								</div>
-							</li>
+									Forms|Add City</a>
+								<a class="dropdown-item" href="">
+									<i class="fas fa-wrench"></i>
+									Forms|Add Job</a>
+							</div>
+						</li>
+						{% else %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" title="users only, register first!">
+								<i class="fas fa-user-cog text-muted"></i>
+								UsersOnly</a>
+							<div class="dropdown-menu bg-body" aria-labelledby="dropdownId">
+								<a class="dropdown-item" href="">
+									<i class="fas fa-hotel    "></i>
+									Forms|Add City</a>
+								<a class="dropdown-item" href="">
+									<i class="fas fa-wrench"></i>
+									Forms|Add Job</a>
+							</div>
+						</li>
 
-								{% endif %}
-								
-								<li class="nav-item">
-								<a class="nav-link" href="{{ url_for('main.aboutdev') }}">
-									<i class="fas fa-pen    "></i>
-									<i class="fas fa-signature    "></i>
-									abt dev</a>
-								</li>
-							</ul>
-						</div>
+						{% endif %}
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('main.aboutdev') }}">
+								<i class="fas fa-pen    "></i>
+								<i class="fas fa-signature    "></i>
+								abt dev</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
-		  <!-- CHALKBOARD INFO BAR  -->
-		  <!-- this is the part that pops up below navbar -->
-		<div class="collapse bg-black text-purple mt-2 mb-0" id="navbarHeader" >
+		<!-- CHALKBOARD INFO BAR  -->
+		<!-- this is the part that pops up below navbar -->
+		<div class="collapse bg-black text-purple mt-2 mb-0" id="navbarHeader">
 			<div class="d-flex justify-content-around align-items-center mt-0 pt-4 px-2 mx-1 ">
-						<small class="text-primary p-0">
-							Code basics in stack-like diagram
-						</small>
-						<p class="text-primary text-center mt-0 mb-0 p-0">
-							<i class="fas  fw fa-flag mt-0"></i>
-						</p>
-						<p class="text-primary text-center mt-0 mb-0 p-0">
-							<i class="fas fa-fw fa-arrow-right"></i>
-						</p>
-						<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
-							<i class="fas fa-user"></i>	create a user acct
-							&RightArrowLeftArrow; 
-							<i class="fas fa-database"></i> stores hash pw into db
-						</div>
-						
-						<p class="text-primary text-center mt-0 mb-0 p-0">
-						<i class="fas  fa-fw fa-arrow-right mt-0"></i>
-						</p>
+				<small class="text-primary p-0">
+					Code basics in stack-like diagram
+				</small>
+				<p class="text-primary text-center mt-0 mb-0 p-0">
+					<i class="fas  fw fa-flag mt-0"></i>
+				</p>
+				<p class="text-primary text-center mt-0 mb-0 p-0">
+					<i class="fas fa-fw fa-arrow-right"></i>
+				</p>
+				<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
+					<i class="fas fa-user"></i> create a user acct
+					&RightArrowLeftArrow;
+					<i class="fas fa-database"></i> stores hash pw into db
+				</div>
+
+				<p class="text-primary text-center mt-0 mb-0 p-0">
+					<i class="fas  fa-fw fa-arrow-right mt-0"></i>
+				</p>
 
 
-						<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
-							<i class="fas fa-clipboard-list    "></i> user create obj (def: post) via forms
-							&RightArrowLeftArrow; 
-							<i class="fas fa-database    "></i> stores to db and reads when returned as a result of a query
-						</div>
-												
-						<p class="text-primary text-center mt-0 mb-0 p-0">
-							<i class="fas fa-fw fa-level-down-alt mx-2 mt-0"></i>
-						</p>
+				<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
+					<i class="fas fa-clipboard-list    "></i> user create obj (def: post) via forms
+					&RightArrowLeftArrow;
+					<i class="fas fa-database    "></i> stores to db and reads when returned as a result of a query
+				</div>
+
+				<p class="text-primary text-center mt-0 mb-0 p-0">
+					<i class="fas fa-fw fa-level-down-alt mx-2 mt-0"></i>
+				</p>
 			</div>
 			<div class="d-flex flex-row-reverse justify-content-around align-items-center  mt-0 pt-2 px-2 mr-2">
 				<p class="text-primary text-center mt-0 mb-0 mx-2 p-0">
 					<i class="fas fa-level-down-alt  fa-rotate-90 mt-0"></i>
 				</p>
 				<div class="alert alert-primary text-primary text-center mb-1 p-2" role="alert">
-					<i class="fas fa-clipboard-check    "></i> user updates items/edits or delete records &RightArrowLeftArrow; 
+					<i class="fas fa-clipboard-check    "></i> user updates items/edits or delete records &RightArrowLeftArrow;
 					<i class="fas fa-database    "></i> db stores or removes records
 				</div>
-				
+
 				<p class="text-primary text-center mt-0 mb-0 p-0">
 					<i class="fas  fa-fw fa-arrow-left mt-0"></i>
 				</p>
@@ -215,32 +203,24 @@
 			</div>
 		</div>
 		</div>
-		<div class="navbar bg-secondary box-shadow mt-0"
-		>
+		<div class="navbar bg-secondary box-shadow mt-0">
 			<div class="container d-flex justify-content-between pt-2">
 				<a class="navbar-brand d-flex align-items-center">
-					<i class="fa fa-code mr-2 text-purple" aria-hidden="true"> Show Me The Code!</i >
-					
+					<i class="fa fa-code mr-2 text-purple" aria-hidden="true"> Show Me The Code!</i>
+
 					<i class="fa fa-arrow-right mx-3 text-purple" aria-hidden="true"></i>
 				</a>
-				<button
-					class="navbar-toggler mt-1 p-1"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbarHeader"
-					aria-controls="navbarHeader"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-				<i class="fas fa-info-circle    "></i>
-				<i class="fas fa-chalkboard-teacher"></i>
+				<button class="navbar-toggler mt-1 p-1" type="button" data-toggle="collapse" data-target="#navbarHeader"
+					aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-info-circle    "></i>
+					<i class="fas fa-chalkboard-teacher"></i>
 					<i class="fas fa-cube"></i>
 					<i class="fas fa-arrow-right"></i>
 					<i class="fas fa-cubes"></i>
 				</button>
 			</div>
 		</div>
-		
+
 
 
 		<main role="main" class="container my-1 px-0">
@@ -257,204 +237,148 @@
 				<!-- SIDEBAR -->
 				<div class="col-sm-3">
 
-						<div class="container-fluid text-center mt-0 py-0 px-2">
-							<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="" alt="" style="height: 3rem;">
-							<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlPurple.png" class="" alt="" style="height: 3rem;">
-							<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png" class="" alt="" style="height: 3rem;transform: scaleX(-1);">
-							<div
-								class="nav-flex-column text-center"
-								
-							>
-							<img class="img-responsive" src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_denver_skyline.png" style="height: 6rem;"">
+					<div class="container-fluid text-center mt-0 py-0 px-2">
+
+						<div class="nav-flex-column text-center">
+							<img class="img-fluid px-4"
+								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_denver_skyline.png"
+								>
 							
 
 
-							<div class="container-fluid">
+							<div class=" container-fluid">
 
 
-								{% if current_user.is_authenticated %}
-								<a
-									class="nav-item btn btn-large btn-primary btn-rounded nav-link bg-lavender border-purple py-0 mt-2 btn-disabled"
-									href="{{url_for('scraper.profiler')}}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="a python flask app that scraps indeed job postings fast and displays with a mobile-friendly easy-on-eyes design. *Remake of original DU Coding Bootcamp final project*"
-									style="border-width: medium;border-radius: 12px;border-width: medium;"
-								>
+							{% if current_user.is_authenticated %}
+							<a class="nav-item btn btn-large btn-primary btn-rounded nav-link bg-lavender border-purple py-0 mt-2 btn-disabled"
+								href="{{url_for('scraper.profiler')}}" data-toggle="tooltip" data-placement="right"
+								title="a python flask app that scraps indeed job postings fast and displays with a mobile-friendly easy-on-eyes design. *Remake of original DU Coding Bootcamp final project*"
+								style="border-width: medium;border-radius: 12px;border-width: medium;">
 
 								<i class="fas fa-map-signs fa-3x text-primary mt-1"></i>
 								<img
-								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png" class="mb-1" style="height: 3rem;">
-									
-								</a>																
-								<a
-									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
-									href="{{url_for('scraper.profiler')}}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="profiler collects user input via forms"
-									style="border-width: medium;border-radius: 9px;"
-								>
-								<img
-								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro1.png"
-									class="m-0 p-0"
-									style="height: 2rem;"
-								/>
-									
-								</a>
-								<a
-									class="nav-item btn btn-large btn-secondary nav-link bg-body border-primary pb-2 mt-2"
-									href="{{url_for('scraper.scrap3r') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="user confirm job titles-cities"
-									style="border-width: medium;border-radius: 9px;"
-								>
-								<img
-								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper01.png"
-									class="m-0 p-0"
-									style="height: 2rem;"
-								/>
-									
-								</a>
-								<a
-								class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
-								href="{{url_for('scraper.croupier') }}"
-								data-toggle="tooltip"
-								data-placement="right"
-								title="job search scraping results in card/grid format"
-								style="border-width: medium;border-radius: 9px;"
-							>
-							<img
-							src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier01.png"
-								class="m-0 p-0"
-								style="height: 2rem;"
-							/>
+									src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png"
+									class="mb-1" style="height: 3rem;">
+
 							</a>
-							<a
-							class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
-							href="{{url_for('scraper.tabulator') }}"
-							data-toggle="tooltip"
-							data-placement="right"
-							title="job search scraping results in table format"
-							style="border-width: medium;border-radius: 9px;"
-						>
-						<img
-						src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu01.png"
-							class="m-0 p-0"
-							style="height: 2rem;"
-						/>
-						</a>							
-								
-								<div class="d-flex justify-content-around align-items-center">
-								<a
-									class="nav-item btn btn-large nav-link text-purple pb-2 mt-2"
-									href="{{ url_for('users.account') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="change user preferences or records"
-								>
-								<i class="fas fa-cogs mr-2"> Account</i>
-								</a>								
+							<a class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-primary pb-2 mt-2"
+								href="{{url_for('scraper.profiler')}}" data-toggle="tooltip" data-placement="right"
+								title="profiler collects user input via forms" style="border-width: medium;border-radius: 9px;">
+								<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/pro1.png"
+									class="m-0 p-0" style="height: 2rem;" />
 
-								<a
-									class="nav-item btn btn-large nav-link text-purple pb-2 mt-2"
-									href="{{ url_for('users.logout') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="logout current user"
-								>
-								<i class="fas fa-sign-out-alt mr-2"> Logout</i>
+							</a>
+							<a class="nav-item btn btn-large btn-secondary nav-link bg-body border-primary pb-2 mt-2"
+								href="{{url_for('scraper.scrap3r') }}" data-toggle="tooltip" data-placement="right"
+								title="user confirm job titles-cities" style="border-width: medium;border-radius: 9px;">
+								<img
+									src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/scraper01.png"
+									class="m-0 p-0" style="height: 2rem;" />
+
+							</a>
+							<a class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+								href="{{url_for('scraper.croupier') }}" data-toggle="tooltip" data-placement="right"
+								title="job search scraping results in card/grid format"
+								style="border-width: medium;border-radius: 9px;">
+								<img
+									src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/croupier01.png"
+									class="m-0 p-0" style="height: 2rem;" />
+							</a>
+							<a class="nav-item btn btn-large  btn-secondary nav-link text-purple bg-body border-primary pb-2 mt-2"
+								href="{{url_for('scraper.tabulator') }}" data-toggle="tooltip" data-placement="right"
+								title="job search scraping results in table format" style="border-width: medium;border-radius: 9px;">
+								<img
+									src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/tabu01.png"
+									class="m-0 p-0" style="height: 2rem;" />
+							</a>
+
+							<div class="d-flex justify-content-around align-items-center">
+								<a class="nav-item btn btn-large nav-link text-purple pb-2 mt-2" href="{{ url_for('users.account') }}"
+									data-toggle="tooltip" data-placement="right" title="change user preferences or records">
+									<i class="fas fa-cogs mr-2"> Account</i>
 								</a>
-								
-								</div>	
-								
-								{% else %}
-								<a
-									class="nav-item btn btn-large btn-primary btn-rounded nav-link bg-body border-primary py-0 mt-2 btn-disabled"
-									href="{{url_for('scraper.profiler')}}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="a python flask app that scraps indeed job postings fast and displays with a mobile-friendly easy-on-eyes design. *Remake of original DU Coding Bootcamp final project*"
-									style="border-width: medium;border-radius: 12px;border-width: medium;"
-								>
+
+								<a class="nav-item btn btn-large nav-link text-purple pb-2 mt-2" href="{{ url_for('users.logout') }}"
+									data-toggle="tooltip" data-placement="right" title="logout current user">
+									<i class="fas fa-sign-out-alt mr-2"> Logout</i>
+								</a>
+
+							</div>
+
+							{% else %}
+							<a class="nav-item btn btn-large btn-primary btn-rounded nav-link bg-body border-primary py-0 mt-2 btn-disabled"
+								href="{{url_for('scraper.profiler')}}" data-toggle="tooltip" data-placement="right"
+								title="a python flask app that scraps indeed job postings fast and displays with a mobile-friendly easy-on-eyes design. *Remake of original DU Coding Bootcamp final project*"
+								style="border-width: medium;border-radius: 12px;border-width: medium;">
 
 								<i class="fas fa-map-signs fa-3x text-primary mt-1"></i>
 								<img
-								src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png" class="mb-1" style="height: 3rem;">
-									
-								</a>																
-									
+									src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/logoAllModules/jobVizzyLogoFinal_SmallSimple.png"
+									class="mb-1" style="height: 3rem;">
 
-								<a
-								class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
-									href="{{ url_for('main.about') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="information about app"
-									style="border-width: medium;border-radius: 9px;"
-								>
-								
+							</a>
 
-								<i class="fas fa-info"> 
+
+							<a class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
+								href="{{ url_for('main.about') }}" data-toggle="tooltip" data-placement="right"
+								title="information about app" style="border-width: medium;border-radius: 9px;">
+
+
+								<i class="fas fa-info">
 									<strong>
-										Info 
+										Info
 									</strong>
-								</i> 
+								</i>
 
-								</a>
-								<a
-									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
-									href="{{ url_for('users.register') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="register to enjoy user features"
-									style="border-width: medium;border-radius: 9px;"
-								>
-								<i class="fas fa-user-alt-slash"> Register</i> 
-								</a>
+							</a>
+							<a class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
+								href="{{ url_for('users.register') }}" data-toggle="tooltip" data-placement="right"
+								title="register to enjoy user features" style="border-width: medium;border-radius: 9px;">
+								<i class="fas fa-user-alt-slash"> Register</i>
+							</a>
 
-								<a
-									class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
-									href="{{ url_for('users.login') }}"
-									data-toggle="tooltip"
-									data-placement="right"
-									title="login if registered user already"
-									style="border-width: medium;border-radius: 9px;"
-								>
-								<i class="fa fa-user-plus mr-2" aria-hidden="true"> Login</i> 
-								</a>
+							<a class="nav-item btn btn-large btn-secondary btn-rounded nav-link text-purple bg-body border-secondary pb-2 mt-2"
+								href="{{ url_for('users.login') }}" data-toggle="tooltip" data-placement="right"
+								title="login if registered user already" style="border-width: medium;border-radius: 9px;">
+								<i class="fa fa-user-plus mr-2" aria-hidden="true"> Login</i>
+							</a>
 
-								{% endif %}
+							{% endif %}
 
-								</div>
+						</div>
 
-							<small
-							class="card-subtitle text-muted"
-							style="font-style: italic;"
-						> app developed; graphics designed; code written; database setup; records admin'd; idea cr34t3d by: 
+						<small class="card-subtitle text-muted" style="font-style: italic;"> app developed; graphics designed; code
+							written; database setup; records admin'd; idea cr34t3d by:
 						</small>
 
 						<a href="https://github.com/attila5287/jobvizzy_bp">
 
-							<i class="fa fa-code-branch text-purple ml-2" aria-hidden="true"
-							> attila#52 </i>
+							<i class="fa fa-code-branch text-purple ml-2" aria-hidden="true"> attila#52 </i>
 						</a>
-							</div>
+
+						<div class="d-flex flex-row justify-content-around text-muted text-center">
+												<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png"
+													class="" alt="" style="height: 3rem;">
+												<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlPurple.png"
+													class="" alt="" style="height: 3rem;">
+												<img src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/sidebar_purpleFlowers03.png"
+													class="" alt="" style="height: 3rem;transform: scaleX(-1);">
 						</div>
+					</div>
 				</div>
 			</div>
+			</div>
 		</main>
-		
+
 
 		<footer class="footer mt-2 no-print">
 			<div class="row">
 				<div class="col-sm-4">
-				  <img class="p-0 float-right"
-					src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlPurple.png"
-					alt="" style="height: 6rem;">
+					<img class="p-0 float-right"
+						src="https://raw.githubusercontent.com/attila5287/jobvizzy2_assets/master/mascotOWL/owlPurple.png" alt=""
+						style="height: 6rem;">
 				</div>
-				
+
 				<div class="col-sm-2">
 					<div class="d-flex flex-column justify-content-around text-muted text-center">
 						<a>BoilerPlate </a>
@@ -464,7 +388,7 @@
 						<a>Full Stack Web App </a>
 					</div>
 				</div>
-				<div class="col-sm-2">	
+				<div class="col-sm-2">
 					<div class="d-flex flex-column justify-content-between text-muted text-center">
 						<a>Python Object Oriented Programming</a>
 						<a>Flask Web FrameWork</a>
@@ -478,67 +402,137 @@
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+		</script>
 		<style>
-			body{
+			body {
 				background-color: rgb(224, 208, 248);
 			}
+
 			.bg-body {
 				background-color: rgb(224, 208, 248);
-			  }
+			}
+
 			.border-body {
 				border-color: rgba(224, 208, 248);
 				border-width: medium;
 			}
+
 			.text-purple {
-				  color: rgb(114, 99, 212);
+				color: rgb(114, 99, 212);
 			}
+
 			.bg-purple {
 				background-color: darkslateblue;
 			}
+
 			.border-purple {
-				border-color : darkslateblue;
+				border-color: darkslateblue;
 				border-width: medium;
-			}			
+			}
+
 			.bg-lavender {
-			background-color:#bb7dee;
+				background-color: #bb7dee;
 			}
+
 			.border-lavender {
-				border-color:#bb7dee;
+				border-color: #bb7dee;
 				border-width: medium;
 			}
-			.bg-orchid{
+
+			.bg-orchid {
 				background-color: #c89bdf;
 			}
-			
+
 			html {
-			position: relative;
-			min-height: 100%;
+				position: relative;
+				min-height: 100%;
 			}
+
 			body {
 				margin-top: 20px;
-			margin-bottom: 60px; /* Margin bottom by footer height */
+				margin-bottom: 60px;
+				/* Margin bottom by footer height */
 			}
-			
+
 			.footer {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 20px; /* Set the fixed height of the footer here */
-			line-height: 20px; /* Vertically center the text there */
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 20px;
+				/* Set the fixed height of the footer here */
+				line-height: 20px;
+				/* Vertically center the text there */
 			}
+
 			.fa-ul li {
-        padding-left:12px ;
-        font-family: Tahoma, sans-serif;
-        font-weight: normal;
+				padding-left: 12px;
+				font-family: Tahoma, sans-serif;
+				font-weight: normal;
 				text-align: left;
 				font-size: 60%;
 			}
-			  
+
+		a.card-title {
+		color:darkorchid;
+		font-size: 2rem;
+		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		font-weight: bold;
+		}
+		a.card-title:hover {
+			color: #428bca;
+			text-decoration: none;
+		}
+		
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  color: black; 
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+} 		
 		</style>
 
 	</body>
+
 </html>
 <div class="d-flex flex-column justify-content-around text-muted text-center">
+
+	          
